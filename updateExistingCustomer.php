@@ -1,7 +1,7 @@
 
 <html>
 <head>
-<title>AIP - Update a Customer</title>
+<title>Update a Customer</title>
 <style>
 h6 {
    width: 50%; 

@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>AIP - Home</title>
+<title>MPC Home</title>
 <style>
 h6 {
    width: 50%; 

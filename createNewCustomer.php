@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>AIP - Create a New Customer</title>
+<title>Create a New Customer</title>
 <style>
 h6 {
    width: 50%; 

@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>AIP - Create a New Order</title>
+<title>Create a New Order</title>
 <style>
 h6 {
    width: 50%; 
@@ -9,6 +9,10 @@ h6 {
    line-height: 0.1em;
    margin: 10px 0 10px; 
 } 
+
+div.wrapper {
+    text-align: center;
+}
 div.b {
 	font-size: 9px;
 	color: #E83F7C;
@@ -19,7 +23,25 @@ h6 span {
 	padding: 0 40px;
 	length:10px;
 }
+table {
+    border-collapse: collapse;
+    width: 100%;
+	table-layout: fixed;
+}
 
+th,td {
+text-align: center;
+align: center;
+    padding: 8px;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+tr:hover {background-color: #fad1e0;}
+th {
+    background-color: #E83F7C;
+    color: white;
+font-size: 16px;
+font-weight: normal;
+}
 </style>
 </head>
 <body>
@@ -50,11 +72,20 @@ echo '<br>';
 
 
 
-
-
-
-
-
+$query = "SELECT * FROM Items";
+echo '<h6><span>Select Items</span></h6><br>';
+echo "<table style='width:1200px' align='center'>";
+echo "<tr><th>" . "Select" . "</th>". "<th>" ."Name" . "</th><th>" ."Description" . "</th><th>" ."Price". "</th>" . "<th>" . "Quantity" . "</th></tr>";
+foreach ($conn->query($query) as $row)
+{
+echo "<tr>" . "<td>" . "<input type='checkbox' name='itemSelect'>" . "</td>" . "<td>" . $row['name'] . "</td><td>" . $row['description'] . "</td><td>" . $row['price'] . "</td>" . "<td>" . "<input type='text' name='quantity' size='10'>" . "</td></tr>";
+}
+echo "</table>";
+echo '<div class="wrapper">';
+echo '<br><br><input type="reset" style="width: 200px;" align="center" value="Cancel">';
+echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+        echo '<input type="submit" style="width: 200px;" align="center" value="Place Order">';
+echo '</div>';
 echo "</form>";
 
 /************************************************************/
@@ -100,16 +131,6 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
 
 
 
-$query = "SELECT * FROM Items";
-echo '<h6><span>Select Items</span></h6><br>';
-echo "<table>";
-echo "<tr><td>" ."Name" . "</td><td>" ."Description" . "</td><td>" ."Price". "</td></tr>";
-foreach ($conn->query($query) as $row)
-{
-echo "<tr><td>" . $row['name'] . "</td><td>" . $row['description'] . "</td><td>" . $row['price'] . "</td></tr>";
-}
-
-echo "</table><br><br>";
 ?>
 
 create new table for each customer order:<br>
@@ -133,6 +154,7 @@ create new table for each customer order:<br>
 &nbsp;&nbsp; - each item price<br>
 &nbsp;&nbsp; - order total<br>
 <br><br>
-order id is auto_increment on "add"
+order id is auto_increment on "add"<br>
+https://stackoverflow.com/questions/37316943/how-to-automatically-increment-checkbox-id-in-a-table
 </body>
 </html>
