@@ -1,6 +1,9 @@
 <html>
 <head>
 <title>Create a New Order</title>
+
+
+
 <style>
 h6 {
    width: 50%; 
@@ -49,7 +52,17 @@ font-weight: normal;
 include ("AIPHeader.php");
 include ("conn.php");
 
-$sqll="select customername from Customers";
+$sqll="select id, customername from Customers";
+
+
+
+session_start();
+ if(empty($_SESSION['count'])) $_SESSION['count'] = 0;
+ $order =  $_SESSION['count']+1;
+ $_SESSION['count'] =  $order;
+
+
+
 
 echo '<br>';
 echo '<h6><span>Create Customer Order</span></h6><br>';
@@ -61,7 +74,7 @@ echo "<label for='customerSelection'>Select a Customer &nbsp;&nbsp;</label>";
         foreach ($conn->query($sqll) as $row)
         {
                 echo '<option value="';
-                echo $row["customername"];
+                echo $row["id"];
                 echo '">';
                 echo $row["customername"];
                 echo '</option>';
@@ -76,51 +89,58 @@ $query = "SELECT * FROM Items";
 echo '<h6><span>Select Items</span></h6><br>';
 echo "<table style='width:1200px' align='center'>";
 echo "<tr><th>" . "Select" . "</th>". "<th>" ."Name" . "</th><th>" ."Description" . "</th><th>" ."Price". "</th>" . "<th>" . "Quantity" . "</th></tr>";
-foreach ($conn->query($query) as $row)
+foreach($conn->query($query) as $row)
 {
-echo "<tr>" . "<td>" . "<input type='checkbox' name='itemSelect'>" . "</td>" . "<td>" . $row['name'] . "</td><td>" . $row['description'] . "</td><td>" . $row['price'] . "</td>" . "<td>" . "<input type='text' name='quantity' size='10'>" . "</td></tr>";
+echo "<tr>" . "<td>" . "<input type='checkbox' id=\"itemSelect".$row['id']."\" name='itemSelect[]'  >" . "</td>" . "<td>" . $row['name'] . "</td><td>" . $row['description'] . "</td><td>" . $row['price'] . "</td>" . "<td>" . "<input type='text' name='quantity' size='10'>" . "</td></tr>";
+
 }
+
 echo "</table>";
 echo '<div class="wrapper">';
 echo '<br><br><input type="reset" style="width: 200px;" align="center" value="Cancel">';
 echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
         echo '<input type="submit" style="width: 200px;" align="center" value="Place Order">';
-echo '</div>';
+ echo '<input type="hidden" name="which" value="createcustomerorder">';
+
+echo "</div>";
 echo "</form>";
 
 /************************************************************/
 if ($_SERVER['REQUEST_METHOD']=='POST')
 {
-        if ($_POST['which'] == 'updateacustomer')
+        if ($_POST['which'] == 'createcustomerorder')
         {
-                $customername=$_POST['customerName'];
-                $billingstreet=$_POST['customerBillingStreet'];
-                $billingcity=$_POST['customerBillingCity'];
-                $billingstate=$_POST['customerBillingState'];
-                $billingzip=$_POST['customerBillingZip'];
-                $shippingstreet=$_POST['customerShippingStreet'];
-                $shippingcity=$_POST['customerShippingStreet'];
-                $shippingstate=$_POST['customerShippingState'];
-                $shippingzip=$_POST['customerShippingZip'];
-                $contactfirstname=$_POST['contactFirstName'];
-                $contactlastname=$_POST['contactLastName'];
-                $contactphonenumber=$_POST['contactPhoneNumber'];
-                $contactemail=$_POST['contactEmail'];
-                $insertSQL="";
+		$ordernum=$order;
+		$customerid=$_POST['customerSelection'];
 
-                try
-                {
-                        $stmt=$conn->prepare($insertSQL);
-                        $ok=$stmt->execute(array($customername,$billingstreet,$billingcity,$billingstate,$billingzip,$shippingstreet,$shippingcity,$shippingstate,$shippingzip,$contactfirstname,$contactlastname,$contactphonenumber,$contactemail));
+			try {
+			//create a table
+			$createTableSQL="create table customerOrder$ordernum as (select * from Customers where id=$customerid)";
+			$alterTableSQL="alter table customerOrder$ordernum add selectedItem int(11)";
+			$alterTable2SQL="alter table customerOrder$ordernum add itemQuantity int(11)";
 
-                        echo "Customer ".$customername." updated successfully!";
-                }
+			$stmt=$conn->prepare($createTableSQL);
+			$ok=$stmt->execute(array($ordernum,$customerid));
 
-                catch (PDOException $e)
-                {
-                        echo "Oops, customer could not be update.";
-                        echo "error: ".$e->getMessage();
-                }
+			$stmt=$conn->prepare($alterTableSQL);
+			$ok=$stmt->execute();
+
+			$stmt=$conn->prepare($alterTable2SQL);
+                        $ok=$stmt->execute();
+
+
+			echo "Order created successfully!";
+			}
+
+			catch (PDOException $e) {
+			echo "Oops, customer order could not be placed.<br>";
+			echo "error: ".$e->getMessage();
+			}
+//when button is pressed, create an order number
+//for each order, create a table as "ordernum(num)"
+//for each table, use all attributes from the selected customer
+//for each selected item, put the item id in the customertable
+//for each selected item, put the quantity in the customertable
         }
 }
 
@@ -133,28 +153,5 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
 
 ?>
 
-create new table for each customer order:<br>
-- dropdown menu with customer names<br>
-- table with items and their attributes with check boxes and quantity fields next to each item<br>
-- button "add"<br>
-- user will check the box for each item them want to add to their order<br>
-- user will input the quantity for each item they want to add to their order<br>
-- when "add" is pressed
-&nbsp;* ask "are you sure?"<br>
-&nbsp;* create a new table with:<br>
-&nbsp;&nbsp; - order id<br>
-&nbsp;&nbsp; - customer id<br>
-&nbsp;&nbsp; - customer name<br>
-&nbsp;&nbsp; - customer billing and shipping addresses<br>
-&nbsp;&nbsp; - customer contact<br>
-&nbsp;&nbsp; - all customer attributes<br>
-&nbsp;&nbsp; - each item id<br>
-&nbsp;&nbsp; - each item name<br>
-&nbsp;&nbsp; - each item quantity<br>
-&nbsp;&nbsp; - each item price<br>
-&nbsp;&nbsp; - order total<br>
-<br><br>
-order id is auto_increment on "add"<br>
-https://stackoverflow.com/questions/37316943/how-to-automatically-increment-checkbox-id-in-a-table
 </body>
 </html>
