@@ -91,7 +91,7 @@ echo "<table style='width:1200px' align='center'>";
 echo "<tr><th>" . "Select" . "</th>". "<th>" ."Name" . "</th><th>" ."Description" . "</th><th>" ."Price". "</th>" . "<th>" . "Quantity" . "</th></tr>";
 foreach($conn->query($query) as $row)
 {
-echo "<tr>" . "<td>" . "<input type='checkbox' id=\"itemSelect".$row['id']."\" name='itemSelect[]'  >" . "</td>" . "<td>" . $row['name'] . "</td><td>" . $row['description'] . "</td><td>" . $row['price'] . "</td>" . "<td>" . "<input type='text' name='quantity' size='10'>" . "</td></tr>";
+echo "<tr>" . "<td>" . "<input type='checkbox' id=\"itemSelect".$row['id']."\" name='itemSelect[]'  >" . "</td>" . "<td>" . $row['name'] . "</td><td>" . $row['description'] . "</td><td>" . $row['price'] . "</td>" . "<td>" . "<input type='text' id=\"itemQuantity".$row['id']."\" name='itemQuantity[]' size='10'>" . "</td></tr>";
 
 }
 
