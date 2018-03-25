@@ -1,6 +1,9 @@
 <html>
 <head>
 <title>Create a New Order</title>
+
+
+
 <style>
 h6 {
    width: 50%; 
@@ -9,6 +12,7 @@ h6 {
    line-height: 0.1em;
    margin: 10px 0 10px; 
 } 
+
 div.wrapper {
     text-align: center;
 }
@@ -27,6 +31,7 @@ table {
     width: 100%;
 	table-layout: fixed;
 }
+
 th,td {
 text-align: center;
 align: center;
@@ -41,7 +46,6 @@ font-size: 16px;
 font-weight: normal;
 }
 </style>
-
 </head>
 <body>
 <?php
@@ -87,7 +91,7 @@ echo "<table style='width:1200px' align='center'>";
 echo "<tr><th>" . "Select" . "</th>". "<th>" ."Name" . "</th><th>" ."Description" . "</th><th>" ."Price". "</th>" . "<th>" . "Quantity" . "</th></tr>";
 foreach($conn->query($query) as $row)
 {
-echo "<tr>" . "<td>" . "<input type='checkbox' id=\"itemSelect".$row['id']."\" name='itemSelect[]'  >" . "</td>" . "<td>" . $row['name'] . "</td><td>" . $row['description'] . "</td><td>" . $row['price'] . "</td>" . "<td>" . "<input type='text' id=\"itemQuantity".$row['id']."\" name='itemQuantity[]' size='10'>" . "</td></tr>";
+echo "<tr>" . "<td>" . "<input type='checkbox' id='itemSelect' name='itemSelect[]' value=$row[id]  >" . "</td>" . "<td>" . $row['name'] . "</td><td>" . $row['description'] . "</td><td>" . $row['price'] . "</td>" . "<td>" . "<input type='text' id=$row[id] name=$row[id] size='10' pattern=[0-9]+>" . "</td></tr>";
 
 }
 
@@ -108,23 +112,36 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
         {
 		$ordernum=$order;
 		$customerid=$_POST['customerSelection'];
+		if(isset($_POST['itemSelect'])){
+                        if(!empty($_POST['itemSelect'])){
+			$ok="true";
+			foreach ($_POST['itemSelect'] as $selected){
+				if(empty($_POST[$selected])){$ok="false";}
+			}
+			if($ok!="false")
+			{
 
 			try {
 			//create a table
-			$createTableSQL="create table customerOrder$ordernum as (select * from Customers where id=$customerid)";
-			$alterTableSQL="alter table customerOrder$ordernum add selectedItem int(11)";
-			$alterTable2SQL="alter table customerOrder$ordernum add itemQuantity int(11)";
+			$addOrderSQL="INSERT INTO allOrders(cust_id) VALUES(?)";
+			$selectOrderNumSQL="SELECT MAX(order_id) from allOrders WHERE cust_id=?";
+			$addItemPurchaseSQL="INSERT INTO purchases(order_id,item_id,qty) VALUES(?,?,?)";
 
-			$stmt=$conn->prepare($createTableSQL);
-			$ok=$stmt->execute(array($ordernum,$customerid));
+			$stmt=$conn->prepare($addOrderSQL);
+			$ok=$stmt->execute(array($customerid));
 
-			$stmt=$conn->prepare($alterTableSQL);
-			$ok=$stmt->execute();
+			$stmt=$conn->prepare($selectOrderNumSQL);
+                        $stmt->execute(array($customerid));
+			$orderid=$stmt->fetchALL();
 
-			$stmt=$conn->prepare($alterTable2SQL);
-                        $ok=$stmt->execute();
+			//echo $orderid[0][0];
 
-
+			foreach ($_POST['itemSelect'] as $selected){
+			$stmt=$conn->prepare($addItemPurchaseSQL);
+			$ok=$stmt->execute(array($orderid[0][0],$selected,$_POST[$selected]));
+			//echo $selected; the item id
+			//echo $_POST[$selected]; the quantity
+			}
 			echo "Order created successfully!";
 			}
 
@@ -132,6 +149,9 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
 			echo "Oops, customer order could not be placed.<br>";
 			echo "error: ".$e->getMessage();
 			}
+			}else{echo "Put in a number for all selected items you nitwit!";}
+		}else{echo "There is no informarion provided";}
+		}else{echo "Nothing was selected";}
 //when button is pressed, create an order number
 //for each order, create a table as "ordernum(num)"
 //for each table, use all attributes from the selected customer

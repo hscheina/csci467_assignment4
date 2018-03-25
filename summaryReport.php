@@ -4,6 +4,16 @@
 <link rel = "stylesheet"
    type = "text/css"
    href = "stylesheet.css" />
+
+<script>
+function printPage() {
+    window.print();
+}
+function goToGenerateReport() {
+    window.location.href="generateReport.php";
+}
+</script>
+
 </head>
 <body>
 <?php
@@ -13,38 +23,58 @@ include ("conn.php");
 ob_start();
 include ("generateReport.php");
 ob_end_clean();
+$customerOrderSelection=$_SESSION['customerOrderSelection'];
 $reportType=$_SESSION['reportType'];
 $sortOrderSelection=$_SESSION['sortOrderSelection'];
-
-
+$customername=$_SESSION['customername'];
+$billingstreet=$_SESSION['customerbillingstreet'];
+$billingcity=$_SESSION['customerbillingcity'];
+$billingstate=$_SESSION['customerbillingstate'];
+$billingzip=$_SESSION['customerbillingzip'];
+$shippingstreet=$_SESSION['customershippingstreet'];
+$shippingcity=$_SESSION['customershippingcity'];
+$shippingstate=$_SESSION['customershippingstate'];
+$shippingzip=$_SESSION['customershippingzip'];
+echo "<br>";
 echo "<table class='table1' style='width:1000px' align='center'>";
-echo "<tr><th>Summary Report of Order: *ordernum</th></tr>";
-echo "<tr><td>*customername</td></tr>";
-echo "<tr><td>*sortorder</td></tr>";
+echo "<tr><th>Summary Report of Order: ".$customerOrderSelection."</th></tr>";
+echo "<tr><td>".$customername."</td></tr>";
+echo "<tr><td>Sort by: Item ".$sortOrderSelection."</td></tr>";
 echo "</table><br>";
 
 echo "<table class='table1' style='width:1000px' align='center'>";
 echo "<tr><th>Customer Billing Address</th><th>Customer Shipping Address</th><tr>";
-echo "<tr><td>2321 S Billing</td><td>2321 S Shipping</td></tr>";
-echo "<tr class='tr2'><td>Springfield, *state</td><td>Springfield, *state</td></tr>";
-echo "<tr><td>*billingzip</td><td>*shippingzip</td></tr>";
+echo "<tr><td>".$billingstreet."</td><td>".$shippingstreet."</td></tr>";
+echo "<tr class='tr2'><td>".$billingcity.", ".$billingstate."</td><td>".$shippingcity.", ".$shippingstate."</td></tr>";
+echo "<tr><td>".$billingzip."</td><td>".$shippingzip."</td></tr>";
 echo "</table><br>";
 
-$query = "SELECT * FROM Items";
+$query = "select Items.name, Items.description, Items.price, purchases.qty from Items, purchases, allOrders where allOrders.order_id=purchases.order_id and purchases.item_id=Items.id and allOrders.order_id=$customerOrderSelection";
+$sumquery = "select sum(Items.price) from Items, purchases, allOrders where allOrders.order_id=purchases.order_id and purchases.item_id=Items.id and allOrders.order_id=?";
 echo "<table style='width:1000px' align='center'>";
 echo "<tr><th>" . "Item Name" . "</th>". "<th>" ."Item Type" . "</th><th>" ."Item Price" . "</th><th>" ."Item Quantity". "</th></tr>";
 foreach($conn->query($query) as $row)
 {
-echo "<tr><td>".$row['name']."</td><td>".$row['description']."</td><td>".$row['price']."</td><td>qty</td>";
+echo "<tr><td>".$row['name']."</td><td>".$row['description']."</td><td>\$".$row['price']."</td><td>".$row['qty']."</td>";
+
+
+
+                        $stmt666=$conn->prepare($sumquery);
+                        $stmt666->execute(array($customerOrderSelection));
+                        $sumqueryresult=$stmt666->fetchAll();
+			echo $sumqueryresult[0][0];
+//                      $sum=$sumqueryresult[0][0];
+//echo $sum;
 }
-echo "</table>";
+echo "</table><br>";
 
 echo '<div class="wrapper">';
-echo '<br><br><input type="reset" style="width: 200px;" align="center" value="Cancel">';
+echo '<input type="button" value="Cancel" onclick="goToGenerateReport()" />';
 echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-        echo '<input type="submit" style="width: 200px;" align="center" value="Print Report">';
+echo '<input type="button" value="Print Report" onclick="printPage()" />';
 echo "<br><br><br>";
 echo "</div>";
+
 
 //print customer name
 //print customer contact information
