@@ -1,18 +1,6 @@
 <html>
 <head>
 <title>AIP</title>
-</head>
-<style>
-body { 
-    background-image: url('geo.');
-	background-repeat: no-repeat;
-    background-position: 0px 192px; 
-}
-</style>
-
-
-
-
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -26,22 +14,10 @@ body {
   <a href="createNewItem.php" class="w3-bar-item w3-button">Create a New Item</a>
   <a href="updateExistingCustomer.php" class="w3-bar-item w3-button">Update a Customer</a>
 <a href="createCustomerOrder.php" class="w3-bar-item w3-button">Create Customer Order</a>
+<a href="generateReport.php" class="w3-bar-item w3-button">Generate Report</a>
 
-
-
-
-<div class="w3-dropdown-hover">
-    <button class="w3-button">Generate Report ▼
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="w3-dropdown-content w3-bar-block">
-      <a href="#" class="w3-bar-item w3-button">Summary Customer Order</a>
-      <a href="#" class="w3-bar-item w3-button">Detail Customer Order</a>
-    </div>
-  </div> 
-
-    </div>
 </div>
+
 
 
 

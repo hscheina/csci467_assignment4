@@ -2,22 +2,9 @@
 <html>
 <head>
 <title>Update a Customer</title>
-<style>
-h6 {
-   width: 50%; 
-   text-align: left; 
-   border-bottom: 1px solid #000; 
-   line-height: 0.1em;
-   margin: 10px 0 10px; 
-} 
-h6 span {
-	background:#fff;
-	padding: 0 40px;
-	length:10px;
-}
-
-</style>
-
+<link rel = "stylesheet"
+   type = "text/css"
+   href = "stylesheet.css" />
 
 </head>
 <body>
