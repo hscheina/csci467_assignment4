@@ -112,9 +112,14 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
         {
 		$ordernum=$order;
 		$customerid=$_POST['customerSelection'];
-
 		if(isset($_POST['itemSelect'])){
                         if(!empty($_POST['itemSelect'])){
+			$ok="true";
+			foreach ($_POST['itemSelect'] as $selected){
+				if(empty($_POST[$selected])){$ok="false";}
+			}
+			if($ok!="false")
+			{
 
 			try {
 			//create a table
@@ -144,8 +149,9 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
 			echo "Oops, customer order could not be placed.<br>";
 			echo "error: ".$e->getMessage();
 			}
-		}
-		}
+			}else{echo "Put in a number for all selected items you nitwit!";}
+		}else{echo "There is no informarion provided";}
+		}else{echo "Nothing was selected";}
 //when button is pressed, create an order number
 //for each order, create a table as "ordernum(num)"
 //for each table, use all attributes from the selected customer
