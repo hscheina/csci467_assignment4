@@ -14,3 +14,4 @@ catch(PDOException $e)
 }
 ?>
 
+//something weird
