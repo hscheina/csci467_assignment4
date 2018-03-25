@@ -1,26 +1,10 @@
 <html>
 <head>
 <title>Create a New Customer</title>
-<style>
-h6 {
-   width: 50%; 
-   text-align: left; 
-   border-bottom: 1px solid #000; 
-   line-height: 0.1em;
-   margin: 10px 0 10px; 
-} 
-div.b {
-	font-size: 9px;
-	color: #E83F7C;
-	text-indent: 100px;
-}
-h6 span {
-	background:#fff;
-	padding: 0 40px;
-	length:10px;
-}
+<link rel = "stylesheet"
+   type = "text/css"
+   href = "stylesheet.css" />
 
-</style>
 </head>
 <body>
 <?php
@@ -43,7 +27,6 @@ echo '<br>';
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 	echo "<label for='customerName'>Customer Name &nbsp;</label>";
         echo "<input type='text' name='customerName' id='customerName'><br>";
-	echo '<div class="b">*Customer Name is final and cannot be updated later.</div>';
 echo '<br>';
 	echo '<h6><span>Billing Address</span></h6>';
 	echo '<br>';
