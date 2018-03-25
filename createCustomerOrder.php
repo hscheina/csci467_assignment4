@@ -1,9 +1,6 @@
 <html>
 <head>
 <title>Create a New Order</title>
-
-
-
 <style>
 h6 {
    width: 50%; 
@@ -12,7 +9,6 @@ h6 {
    line-height: 0.1em;
    margin: 10px 0 10px; 
 } 
-
 div.wrapper {
     text-align: center;
 }
@@ -31,7 +27,6 @@ table {
     width: 100%;
 	table-layout: fixed;
 }
-
 th,td {
 text-align: center;
 align: center;
@@ -46,6 +41,7 @@ font-size: 16px;
 font-weight: normal;
 }
 </style>
+
 </head>
 <body>
 <?php

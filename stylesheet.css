@@ -1,44 +1,68 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
+body { 
+    background-image: url('geo.');
+        background-repeat: no-repeat;
+    background-position: 0px 192px; 
+}
+h6 {
+   width: 50%; 
+   text-align: left; 
+   border-bottom: 1px solid #000; 
+   line-height: 0.1em;
+   margin: 10px 0 10px; 
+} 
+div.b {
+        font-size: 9px;
+        color: #E83F7C;
+        text-indent: 100px;
 }
 
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: white;
+div.wrapper {
     text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+}
+h6 span {
+        background:#fff;
+        padding: 0 40px;
+        length:10px;
+}
+p {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 60;
+    margin-right: 500;
+}
+table {
+    border-collapse: collapse;
+border: 1px solid black;
+    width: 50%;
+        table-layout: fixed;
+}
+th,td {
+text-align: center;
+align: center;
+    padding: 8px;
 }
 
-li a:hover:not(.active) {
-    background-color: #111;
+th {
+border: 1px solid black;
+font-size: 16px;
+font-weight: normal;
 }
 
-.active {
-    background-color: #4CAF50;
+.table1 {
+border-collapse: collapse;
+border: 1px solid black;
+    width: 50%;
+        table-layout: fixed;
 }
-</style>
-</head>
-<body>
+.table1 th,td {
+text-align: center;
+align: center;
+    padding: 8px;
+}
 
-<ul>
-  <li><a class="active" href="#home">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
-</ul>
-
-</body>
-</html>
+.table1 th {
+border: 1px solid black;
+font-size: 16px;
+font-weight: normal;
+}
