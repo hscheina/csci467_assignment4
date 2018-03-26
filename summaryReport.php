@@ -50,24 +50,23 @@ echo "<tr><td>".$billingzip."</td><td>".$shippingzip."</td></tr>";
 echo "</table><br>";
 
 $query = "select Items.name, Items.description, Items.price, purchases.qty from Items, purchases, allOrders where allOrders.order_id=purchases.order_id and purchases.item_id=Items.id and allOrders.order_id=$customerOrderSelection";
-$sumquery = "select sum(Items.price) from Items, purchases, allOrders where allOrders.order_id=purchases.order_id and purchases.item_id=Items.id and allOrders.order_id=?";
+$sumquery = "select sum(purchases.qty*Items.price) from Items, allOrders, purchases where allOrders.order_id=purchases.order_id and Items.id=purchases.item_id and allOrders.order_id=$customerOrderSelection";
 echo "<table style='width:1000px' align='center'>";
 echo "<tr><th>" . "Item Name" . "</th>". "<th>" ."Item Type" . "</th><th>" ."Item Price" . "</th><th>" ."Item Quantity". "</th></tr>";
 foreach($conn->query($query) as $row)
 {
 echo "<tr><td>".$row['name']."</td><td>".$row['description']."</td><td>\$".$row['price']."</td><td>".$row['qty']."</td>";
-
-
-
-                        $stmt666=$conn->prepare($sumquery);
-                        $stmt666->execute(array($customerOrderSelection));
-                        $sumqueryresult=$stmt666->fetchAll();
-			echo $sumqueryresult[0][0];
-//                      $sum=$sumqueryresult[0][0];
-//echo $sum;
 }
 echo "</table><br>";
-
+echo "<table style='width:1000px' align='center'>";
+	echo"<tr><td>Order Total</td><td>";
+			//ORDER TOTAL
+			$stmt666=$conn->prepare($sumquery);
+                        $stmt666->execute(array($customerOrderSelection));
+                        $sumqueryresult=$stmt666->fetchAll();
+                        echo "\$".$sumqueryresult[0][0];
+	echo "</td></td>";
+echo "</table><br>";
 echo '<div class="wrapper">';
 echo '<input type="button" value="Cancel" onclick="goToGenerateReport()" />';
 echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
