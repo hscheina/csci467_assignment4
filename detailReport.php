@@ -50,7 +50,7 @@ echo "<br>";
 
 
 echo "<table class='table1' style='width:1000px' align='center'>";
-echo "<tr><th>Detail Report of Order: ".$customerOrderSelection."</th><th>Customer Contact Info</th></tr>";
+echo "<tr><th>Detail Report of Order #".$customerOrderSelection."</th><th>Customer Contact Info</th></tr>";
 echo "<tr><td>".$customername."</td><td>".$contactfirstname." ".$contactlastname."</td></tr>";
 echo "<tr><td>Sort by: Item ".$sortOrderSelection."</td><td>".$contactphonenumber."</td></tr>";
 echo "<tr><td> </td><td>".$contactemail."</td></tr>";
@@ -62,8 +62,18 @@ echo "<tr><td>".$billingstreet."</td><td>".$shippingstreet."</td></tr>";
 echo "<tr class='tr2'><td>".$billingcity.", ".$billingstate."</td><td>".$shippingcity.", ".$shippingstate."</td></tr>";
 echo "<tr><td>".$billingzip."</td><td>".$shippingzip."</td></tr>";
 echo "</table><br>";
-
-$query = "select Items.id, Items.name, Items.description, Items.price, purchases.qty from Items, purchases, allOrders where allOrders.order_id=purchases.order_id and purchases.item_id=Items.id and allOrders.order_id=$customerOrderSelection";
+if ($sortOrderSelection=="quantity")
+        {
+                $query = "select Items.id, Items.name, Items.description, Items.price, purchases.qty from Items, purchases, allOrders where allOrders.order_id=purchases.order_id and purchases.item_id=Items.id and allOrders.order_id=$customerOrderSelection order by purchases.qty";
+        }
+if ($sortOrderSelection=="type")
+	{
+		$query = "select Items.id, Items.name, Items.description, Items.price, purchases.qty from Items, purchases, allOrders where allOrders.order_id=purchases.order_id and purchases.item_id=Items.id and allOrders.order_id=$customerOrderSelection order by Items.description";
+	}
+else
+        {
+                $query = "select Items.id, Items.name, Items.description, Items.price, purchases.qty from Items, purchases, allOrders where allOrders.order_id=purchases.order_id and purchases.item_id=Items.id and allOrders.order_id=$customerOrderSelection order by Items.$sortOrderSelection";
+	}
 $sumquery = "select sum(purchases.qty*Items.price) from Items, allOrders, purchases where allOrders.order_id=purchases.order_id and Items.id=purchases.item_id and allOrders.order_id=$customerOrderSelection";
 
 echo "<table style='width:1000px' align='center'>";
