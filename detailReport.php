@@ -64,23 +64,23 @@ echo "<tr><td>".$billingzip."</td><td>".$shippingzip."</td></tr>";
 echo "</table><br>";
 if ($sortOrderSelection=="quantity")
         {
-                $query = "select Items.id, Items.name, Items.description, Items.price, purchases.qty from Items, purchases, allOrders where allOrders.order_id=purchases.order_id and purchases.item_id=Items.id and allOrders.order_id=$customerOrderSelection order by purchases.qty";
+                $query = "select Items.name, Items.description, Items.price, purchases.qty from Items, purchases, allOrders where allOrders.order_id=purchases.order_id and purchases.item_id=Items.id and allOrders.order_id=$customerOrderSelection order by purchases.qty";
         }
 if ($sortOrderSelection=="type")
 	{
-		$query = "select Items.id, Items.name, Items.description, Items.price, purchases.qty from Items, purchases, allOrders where allOrders.order_id=purchases.order_id and purchases.item_id=Items.id and allOrders.order_id=$customerOrderSelection order by Items.description";
+		$query = "select Items.name, Items.description, Items.price, purchases.qty from Items, purchases, allOrders where allOrders.order_id=purchases.order_id and purchases.item_id=Items.id and allOrders.order_id=$customerOrderSelection order by Items.description";
 	}
 else
         {
-                $query = "select Items.id, Items.name, Items.description, Items.price, purchases.qty from Items, purchases, allOrders where allOrders.order_id=purchases.order_id and purchases.item_id=Items.id and allOrders.order_id=$customerOrderSelection order by Items.$sortOrderSelection";
+                $query = "select Items.name, Items.description, Items.price, purchases.qty from Items, purchases, allOrders where allOrders.order_id=purchases.order_id and purchases.item_id=Items.id and allOrders.order_id=$customerOrderSelection order by Items.$sortOrderSelection";
 	}
 $sumquery = "select sum(purchases.qty*Items.price) from Items, allOrders, purchases where allOrders.order_id=purchases.order_id and Items.id=purchases.item_id and allOrders.order_id=$customerOrderSelection";
 
 echo "<table style='width:1000px' align='center'>";
-echo "<tr><th>"."Item ID" ."</th><th>". "Item Name" . "</th>". "<th>" ."Item Type" . "</th><th>" ."Item Price" . "</th><th>" ."Item Quantity". "</th><th>"."Item Total"."</th></tr>";
+echo "<tr><th>". "Item Name" . "</th>". "<th>" ."Item Type" . "</th><th>" ."Item Price" . "</th><th>" ."Item Quantity". "</th><th>"."Item Total"."</th></tr>";
 foreach($conn->query($query) as $row)
 {
-echo "<tr><td>".$row['id']."</td><td>".$row['name']."</td><td>".$row['description']."</td><td>\$".$row['price']."</td><td>".$row['qty']."</td><td>\$".$row['price']*$row['qty']."</td></tr>";
+echo "<tr><td>".$row['name']."</td><td>".$row['description']."</td><td>\$".$row['price']."</td><td>".$row['qty']."</td><td>\$".$row['price']*$row['qty']."</td></tr>";
 }
 echo "</table><br>";
 echo "<table style='width:1000px' align='center'>";

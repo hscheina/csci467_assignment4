@@ -53,7 +53,7 @@ echo '<h6><span>Select a Sort Order</span></h6><br>';
  echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='sortOrderSelection'>Sort by &nbsp;&nbsp;</label>";
         echo '<select name="sortOrderSelection">';
-		echo '<option value="id">Item id</option>';
+		 echo '<option value="price">Item price</option>';
 		echo '<option value="quantity">Item quantity</option>';
 		echo '<option value="price">Item price</option>';
 		echo '<option value="name">Item name</option>';
