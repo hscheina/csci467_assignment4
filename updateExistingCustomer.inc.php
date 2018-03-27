@@ -359,7 +359,7 @@
 				}//endif
 
 				//Check if customer name is valid
-				if (!preg_match("/^[A-Za-z]*$/", $edited_customer_name))
+				if (!preg_match("/^[A-Za-z ]*$/", $edited_customer_name))
 				{
 					$customer_name_message = "Customer Name must contain letters only!";
 					$error_counter = $error_counter + 1;
