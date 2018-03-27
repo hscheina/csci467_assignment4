@@ -23,12 +23,12 @@ echo '<h6><span>Create a New Item</span></h6>';
 echo '<form name="createnewitem" id="createnewitem"
         action="createNewItem.php" method="post">';
 echo '<br>';
-	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-	echo "<label for='name'>Item Name &nbsp;</label>";
-        echo "<input type='text' name='name' id='name'><br>";
+	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+	echo "<label for='name'>Item Name &nbsp;&nbsp;</label>";
+        echo "<input type='text' name='name' id='name'><br><br>";
 echo '<br>';
-	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-echo "<label for='description'>Type &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>";
+	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+echo "<label for='description'>Type &nbsp;&nbsp;</label>";
         echo '<select name="description">';
         foreach ($conn->query($sql) as $row)
         {
@@ -39,9 +39,9 @@ echo "<label for='description'>Type &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n
                 echo '</option>';
         }
         echo '</select>&nbsp;&nbsp;';
-	echo '<br><br>';
-echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-       echo "<label for='price'> Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>";
+	echo '<br><br><br>';
+echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+       echo "<label for='price'>Price &nbsp;&nbsp;</label>";
         echo "<input type='text' name='price' id='price'><br>";
 
         echo '<input type="hidden" name="which" value="createnewitem">';
