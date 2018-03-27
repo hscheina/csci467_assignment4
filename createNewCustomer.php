@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Create a New Customer</title>
+<title>MPC - Create a New Customer</title>
 <link rel = "stylesheet"
    type = "text/css"
    href = "stylesheet.css" />

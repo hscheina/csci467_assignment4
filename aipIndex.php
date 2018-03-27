@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>MPC Home</title>
+<title>MPC - Home</title>
 <link rel = "stylesheet"
    type = "text/css"
    href = "stylesheet.css" />

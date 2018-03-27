@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Detail Report</title>
+<title>MPC - Detail Report</title>
 <link rel = "stylesheet"
    type = "text/css"
    href = "stylesheet.css" />

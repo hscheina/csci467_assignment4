@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Create a New Item</title>
+<title>MPC - Create a New Item</title>
 <link rel = "stylesheet"
    type = "text/css"
    href = "stylesheet.css" />
