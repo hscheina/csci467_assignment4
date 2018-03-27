@@ -18,7 +18,7 @@ include ("conn.php");
 
 $sql="select abbr from States";
 
-echo '<br>';
+echo "<div class='content'>";
 echo '<h6><span>Create a New Customer</span></h6>';
 
 echo '<form name="createnewcustomer" id="createnewcustomer"
@@ -95,13 +95,14 @@ echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n
 echo "<label for='contactEmail'>Email Address &nbsp;&nbsp;</label>";
 echo '&nbsp;&nbsp;';
         echo "<input type='text' name='contactEmail' id='contactEmail' pattern='([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})'  title='Valid email please' required ><br><br>";
-	echo '<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" style="width: 200px;" align="middle" value="Cancel">';
+	echo '<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" style="width: 200px;" align="middle" value="Cancel">';
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
         echo '<input type="submit" style="width: 200px;" align="middle" value="Create New Customer">';
 
         echo '<input type="hidden" name="which" value="createnewcustomer">';
 echo "</form>";
 echo '</table>';
+echo "</div>";
 /************************************************************/
 if ($_SERVER['REQUEST_METHOD']=='POST')
 {

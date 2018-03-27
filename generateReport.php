@@ -16,7 +16,7 @@ include ("conn.php");
 $sql="select description from ItemTypes";
 $sqll="select order_id from allOrders";
 
-echo '<br>';
+echo "<div class='content'>";
 echo '<h6><span>Generate Report</span></h6>';
 
 echo '<form name="generateReport" id="generateReport"
@@ -64,7 +64,7 @@ echo '<br>';
 
         echo '<input type="hidden" name="which" value="generateReport">';
 
-echo '<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" style="width: 200px;" align="middle" value="Cancel">';
+echo '<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" style="width: 200px;" align="middle" value="Cancel">';
         echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
         echo '<input type="submit" style="width: 200px;" align="middle" value="Produce Report">';
 
@@ -74,6 +74,7 @@ $testvar="test";
 
 echo "</form>";
 echo '</table>';
+echo "</div>";
 /************************************************************/
 if ($_SERVER['REQUEST_METHOD']=='POST')
 {

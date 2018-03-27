@@ -63,8 +63,7 @@ session_start();
 
 
 
-
-echo '<br>';
+echo "<div class='content'>";
 echo '<h6><span>Create Customer Order</span></h6><br>';
 echo '<form name="createcustomerorder" id="createcustomerorder"
         action="createCustomerOrder.php" method="post">';
@@ -87,7 +86,7 @@ echo '<br>';
 
 $query = "SELECT * FROM Items";
 echo '<h6><span>Select Items</span></h6><br>';
-echo "<table style='width:1200px' align='center'>";
+echo "<table style='width:880px' align='center'>";
 echo "<tr><th>" . "Select" . "</th>". "<th>" ."Name" . "</th><th>" ."Description" . "</th><th>" ."Price". "</th>" . "<th>" . "Quantity" . "</th></tr>";
 foreach($conn->query($query) as $row)
 {
@@ -103,8 +102,9 @@ echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
  echo '<input type="hidden" name="which" value="createcustomerorder">';
 
 echo "</div>";
-echo "</form>";
 
+echo "</form>";
+echo "</div>";
 /************************************************************/
 if ($_SERVER['REQUEST_METHOD']=='POST')
 {
