@@ -20,7 +20,8 @@
 
         <!-- SUCCESS MESSAGE -->
         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label class="success"><?php echo "$customer_message";?></label><br><br>
+        <label class="success"><?php echo "$success_message";?></label><label class="error"><?php echo "$error_message";?></label><br><br>
+
         
         <h6><span>Update a Customer</span></h6><br>
 

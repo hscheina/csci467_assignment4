@@ -125,7 +125,10 @@
 			$error_counter = 0;
 
 			//Success message
-			$customer_message = "";
+			$success_message = "";
+
+			//Error message
+			$error_message = "";
 
 		/********** CHECK IF USER PRESSED THE EDIT BUTTON **********/
 		if (isset($_POST['edit_customer_button']))
@@ -501,6 +504,11 @@
 					$error_counter = $error_counter + 1;
 				}
 
+				if ($error_counter != 0)
+				{
+					$error_message = "One or more fields are incorrect!";
+				}
+
 			
 			/* UDPDATE CUSTOMER IF ALL FIELDS ARE VALID*/
 
@@ -514,8 +522,9 @@
 				mysqli_query($harisConn, $update_customer_query);
 
 				//Display success message
-				$customer_message = "Customer was successfully updated!";
+				$success_message = "Customer was successfully updated!";
 			}//endif
+
  		
  		}//endif update button
 		
