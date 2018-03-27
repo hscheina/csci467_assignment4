@@ -24,20 +24,20 @@ echo '<h6><span>Create a New Customer</span></h6>';
 echo '<form name="createnewcustomer" id="createnewcustomer"
         action="createNewCustomer.php" method="post">';
 echo '<br>';
-	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 	echo "<label for='customerName'>Customer Name &nbsp;</label>";
-        echo "<input type='text' name='customerName' id='customerName'><br>";
+        echo "<input type='text' name='customerName' id='customerName'><br><br>";
 echo '<br>';
 	echo '<h6><span>Billing Address</span></h6>';
 	echo '<br>';
-	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-	echo "<label for='customerBillingStreet'>Street &nbsp;</label>";
-        echo "<input type='text' name='customerBillingStreet' id='customerBillingStreet'><br>";
+	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+	echo "<label for='customerBillingStreet'>Street &nbsp;&nbsp;</label>";
+        echo "<input type='text' name='customerBillingStreet' id='customerBillingStreet'><br><br>";
 	echo '<br>';
-	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-       echo "<label for='customerBillingCity'>City&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>";
-        echo "<input type='text' name='customerBillingCity' id='customerBillingCity'><br><br>";
-	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+       echo "<label for='customerBillingCity'>City &nbsp;&nbsp;</label>";
+        echo "<input type='text' name='customerBillingCity' id='customerBillingCity'><br><br><br>";
+	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='customerBillingState'>State &nbsp;&nbsp;</label>";
         echo '<select name="customerBillingState">';
         foreach ($conn->query($sql) as $row)
@@ -48,21 +48,21 @@ echo "<label for='customerBillingState'>State &nbsp;&nbsp;</label>";
 		echo $row["abbr"];
                 echo '</option>';
         }
-        echo '</select>&nbsp;&nbsp;';
+        echo '</select><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 
-       echo "<label for='customerBillingZip'> Zip Code &nbsp;&nbsp;</label>";
-        echo "<input type='text' name='customerBillingZip' id='customerBillingZip'><br>";
+       echo "<label for='customerBillingZip'>Zip Code &nbsp;&nbsp;</label>";
+        echo "<input type='text' name='customerBillingZip' id='customerBillingZip'><br><br>";
 
 echo '<br>';
 echo '<h6><span>Shipping Address</span></h6>';
 echo '<br>';
-echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-echo "<label for='customerShippingStreet'>Street &nbsp;</label>";
-        echo "<input type='text' name='customerShippingStreet' id='customerShippingStreet'><br><br>";
-	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-       echo "<label for='customerShippingCity'>City&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>";
-        echo "<input type='text' name='customerShippingCity' id='customerShippingCity'><br><br>";
-	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+echo "<label for='customerShippingStreet'>Street &nbsp;&nbsp;</label>";
+        echo "<input type='text' name='customerShippingStreet' id='customerShippingStreet'><br><br><br>";
+	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+       echo "<label for='customerShippingCity'>City &nbsp;&nbsp;</label>";
+        echo "<input type='text' name='customerShippingCity' id='customerShippingCity'><br><br><br>";
+	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
         echo "<label for='customerShippingState'>State &nbsp;&nbsp;</label>";
         echo '<select name="customerShippingState">';
         foreach ($conn->query($sql) as $row)
@@ -73,26 +73,26 @@ echo "<label for='customerShippingStreet'>Street &nbsp;</label>";
 		echo $row["abbr"];
                 echo '</option>';
         }
-        echo '</select>&nbsp;&nbsp;';
+        echo '</select><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 
-echo "<label for='customerShippingZip'> Zip Code &nbsp;&nbsp;</label>";
-        echo "<input type='text' name='customerShippingZip' id='customerShippingZip'><br>";
+echo "<label for='customerShippingZip'>Zip Code &nbsp;&nbsp;</label>";
+        echo "<input type='text' name='customerShippingZip' id='customerShippingZip'><br><br>";
 
 
 echo '<br>';
 echo '<h6><span>Contact Information</span></h6>';
 echo '<br>';
-echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-echo "<label for='contactFirstName'>First Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>";
-        echo "<input type='text' name='contactFirstName' id='contactFirstName'><br><br>";
-echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-echo "<label for='contactLastName'>Last Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>";
-        echo "<input type='text' name='contactLastName' id='contactLastName'><br><br>";
-echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-echo "<label for='contactPhoneNumber'>Phone Number  &nbsp;</label>";
-        echo "<input type='text' name='contactPhoneNumber' id='contactPhoneNumber'><br><br>";
-echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-echo "<label for='contactEmail'>Email Address </label>";
+echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+echo "<label for='contactFirstName'>First Name &nbsp;&nbsp;</label>";
+        echo "<input type='text' name='contactFirstName' id='contactFirstName'><br><br><br>";
+echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+echo "<label for='contactLastName'>Last Name &nbsp;&nbsp;</label>";
+        echo "<input type='text' name='contactLastName' id='contactLastName'><br><br><br>";
+echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+echo "<label for='contactPhoneNumber'>Phone Number &nbsp;&nbsp;</label>";
+        echo "<input type='text' name='contactPhoneNumber' id='contactPhoneNumber'><br><br><br>";
+echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+echo "<label for='contactEmail'>Email Address &nbsp;&nbsp;</label>";
 echo '&nbsp;&nbsp;';
         echo "<input type='text' name='contactEmail' id='contactEmail'><br><br>";
 	echo '<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" style="width: 200px;" align="middle" value="Cancel">';
