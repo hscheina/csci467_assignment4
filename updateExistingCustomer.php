@@ -19,8 +19,8 @@
     <form method="POST" action="updateExistingCustomer.php" id="update_customer_form">
 
         <!-- SUCCESS MESSAGE -->
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label class="success"><?php echo "$customer_message";?></label><br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="success"><?php echo "$customer_message";?></label>
         
         <h6><span>Update a Customer</span></h6><br>
 
