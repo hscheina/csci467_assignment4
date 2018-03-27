@@ -1,176 +1,291 @@
-
-<html>
-<head>
-<title>Update a Customer</title>
-<link rel = "stylesheet"
-   type = "text/css"
-   href = "stylesheet.css" />
-
-</head>
-<body>
 <?php
-include ("AIPHeader.php");
-include ("conn.php");
 
-
-
-
-
-
-$sql="select abbr from States";
-$sqll="select customername from Customers";
-
-echo '<br>';
-echo '<h6><span>Update a Customer</span></h6><br>';
-echo '<form name="updateacustomer" id="updateacustomer"
-        action="updateExistingCustomer.php" method="post">';
- echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-echo "<label for='customerSelection'>Select a Customer &nbsp;&nbsp;</label>";
-        echo '<select name="customerSelection">';
-        foreach ($conn->query($sqll) as $row)
-        {
-                echo '<option value="';
-                echo $row["customername"];
-                echo '">';
-                echo $row["customername"];
-                echo '</option>';
-        }
-echo '</select>&nbsp;&nbsp;';
-echo '<br>';
-echo '<br>';
-
-
-
-	echo '<h6><span>Billing Address</span></h6>';
-	echo '<br>';
-	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-	echo "<label for='customerBillingStreet'>Street &nbsp;</label>";
-        echo "<input type='text' name='customerBillingStreet' id='customerBillingStreet'><br>";
-	echo '<br>';
-	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-       echo "<label for='customerBillingCity'>City&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>";
-        echo "<input type='text' name='customerBillingCity' id='customerBillingCity'><br><br>";
-	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-echo "<label for='customerBillingState'>State &nbsp;&nbsp;</label>";
-        echo '<select name="customerBillingState">';
-        foreach ($conn->query($sql) as $row)
-        {
-                echo '<option value="';
-                echo $row["abbr"];
-                echo '">';
-		echo $row["abbr"];
-                echo '</option>';
-        }
-        echo '</select>&nbsp;&nbsp;';
-
-       echo "<label for='customerBillingZip'> Zip Code &nbsp;&nbsp;</label>";
-        echo "<input type='text' name='customerBillingZip' id='customerBillingZip'><br>";
-
-echo '<br>';
-echo '<h6><span>Shipping Address</span></h6>';
-echo '<br>';
-echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-echo "<label for='customerShippingStreet'>Street &nbsp;</label>";
-        echo "<input type='text' name='customerShippingStreet' id='customerShippingStreet'><br><br>";
-	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-       echo "<label for='customerShippingCity'>City&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>";
-        echo "<input type='text' name='customerShippingCity' id='customerShippingCity'><br><br>";
-	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-        echo "<label for='customerShippingState'>State &nbsp;&nbsp;</label>";
-        echo '<select name="customerShippingState">';
-        foreach ($conn->query($sql) as $row)
-        {
-                echo '<option value="';
-                echo $row["abbr"];
-                echo '">';
-		echo $row["abbr"];
-                echo '</option>';
-        }
-        echo '</select>&nbsp;&nbsp;';
-
-echo "<label for='customerShippingZip'> Zip Code &nbsp;&nbsp;</label>";
-        echo "<input type='text' name='customerShippingZip' id='customerShippingZip'><br>";
-
-
-echo '<br>';
-echo '<h6><span>Contact Information</span></h6>';
-echo '<br>';
-echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-echo "<label for='contactFirstName'>First Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>";
-        echo "<input type='text' name='contactFirstName' id='contactFirstName'><br><br>";
-echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-echo "<label for='contactLastName'>Last Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>";
-        echo "<input type='text' name='contactLastName' id='contactLastName'><br><br>";
-echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-echo "<label for='contactPhoneNumber'>Phone Number  &nbsp;</label>";
-        echo "<input type='text' name='contactPhoneNumber' id='contactPhoneNumber'><br><br>";
-echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-echo "<label for='contactEmail'>Email Address </label>";
-echo '&nbsp;&nbsp;';
-        echo "<input type='text' name='contactEmail' id='contactEmail'><br><br>";
-	echo '<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" style="width: 200px;" align="middle" value="Cancel">';
-	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-        echo '<input type="submit" style="width: 200px;" align="middle" value="Update Customer">';
-
-        echo '<input type="hidden" name="which" value="updateacustomer">';
-echo "</form>";
-echo '</table>';
-/************************************************************/
-if ($_SERVER['REQUEST_METHOD']=='POST')
-{
-        if ($_POST['which'] == 'updateacustomer')
-        {
-                $customername=$_POST['customerName'];
-                $billingstreet=$_POST['customerBillingStreet'];
-		$billingcity=$_POST['customerBillingCity'];
-		$billingstate=$_POST['customerBillingState'];
-		$billingzip=$_POST['customerBillingZip'];
-		$shippingstreet=$_POST['customerShippingStreet'];
-		$shippingcity=$_POST['customerShippingStreet'];
-		$shippingstate=$_POST['customerShippingState'];
-		$shippingzip=$_POST['customerShippingZip'];
-		$contactfirstname=$_POST['contactFirstName'];
-		$contactlastname=$_POST['contactLastName'];
-		$contactphonenumber=$_POST['contactPhoneNumber'];
-		$contactemail=$_POST['contactEmail'];
-                $insertSQL="UPDATE Customers SET billingstreet=$billingstreet,billingcity=$billingcity,billingstate=$billingstate,billingzip=$billingzip,shippingstreet=$shippingstreet,shippingcity=$shippingcity,shippingstate=$shippingstate,shippingzip=$shippingzip,contactfirstname=$contactfirstname,contactlastname=$contactlastname,contactphonenumber=$contactphonenumber,contactemail=$contactemail) where customername=$customername";
-
-                try
-                {
-                        $stmt=$conn->prepare($insertSQL);
-                        $ok=$stmt->execute(array($customername,$billingstreet,$billingcity,$billingstate,$billingzip,$shippingstreet,$shippingcity,$shippingstate,$shippingzip,$contactfirstname,$contactlastname,$contactphonenumber,$contactemail));
-
-                        echo "Customer ".$customername." updated successfully!";
-                }
-
-                catch (PDOException $e)
-                {
-                        echo "Oops, customer could not be update.";
-                        echo "error: ".$e->getMessage();
-                }
-        }
-}
-
-
-
-
-
-
-
-
-
+    include 'AIPHeader.php';
+    include 'conn.php';
+    include 'updateExistingCustomer.inc.php';
 
 ?>
-logic:<br><br>
-- a dropdown menu with Customer names and IDs<br>
-- empty textfields exactly the same as create a customer page<br>
-- when select a Customer from dropdown, textfields are filled in with attributes of selected Customer<br>
-- user can edit the textfields and press enter<br>
-- by pressing enter, an sql "UPDATE" command is triggered with all the values, including the new values<br>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Customer</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+</head>
+<body>
+    
+    <!-- Customer drop down list -->
+    <form method="POST" action="updateExistingCustomer.php" id="update_customer_form">
+
+        <!-- SUCCESS MESSAGE -->
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="success"><?php echo "$customer_message";?></label><br><br>
+        
+        <h6><span>Update a Customer</span></h6><br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <label for="search-customer-label">Select a Customer&nbsp;&nbsp;</label>
+
+        <select name="selected_customer" id="selected_customer">
+
+            <option value="" selected disabled>Select a customer</option>
+
+                <?php while($customer_row = mysqli_fetch_array($all_customers_query_result)):;?>
+
+                <option value="<?php echo $customer_row[0];?>"><?php echo $customer_row[1];?></option>
+
+                <script type="text/javascript">
+                
+                    document.getElementById('selected_customer').value = "<?php echo "$selected_customer"; ?>";
+                    
+                </script>
+
+            <?php endwhile;?>
+
+        </select>&nbsp;&nbsp;&nbsp;
+
+        <button type="submit" name="edit_customer_button" id="edit_customer_button">EDIT</button><br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <label class="error"><?php echo "$selected_customer_message";?></label><br><br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <!-- CUSTOMER NAME -->
+
+            <!-- Customer name label -->
+            <label for="customer_name_label">Customer Name&nbsp;&nbsp;</label>
+
+            <!-- Customer name textbox -->
+            <input type="text" name="customer_name_edited" id="customer_name_label" value="<?php echo "$edited_customer_name"; ?>"><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <!-- Customer name error message-->
+            <label class="error"><?php echo "$customer_name_message";?></label><br><br>
+
+        <h6><span>Billing Address</span></h6><br>
+
+        <!-- BILLING ADDRESS -->
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+            <!-- Street label-->
+            <label for="billing_street_label">Street&nbsp;&nbsp;</label>
+
+            <!-- Street textbox -->
+            <input type="text" name="billing_street_edited" id="billing_street_label" value="<?php echo "$edited_billing_street"; ?>"><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <!-- Street error message-->
+            <label class="error"><?php echo "$billing_street_message";?></label><br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+            <!-- City label -->
+            <label for="billing_city_label">City&nbsp;&nbsp;</label>
+
+            <!-- City textbox -->
+            <input type="text" name="billing_city_edited" id="billing_city_label" value="<?php echo "$edited_billing_city"; ?>"><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <!-- City error message -->
+            <label class="error"><?php echo "$billing_city_message";?></label><br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <!-- State label -->
+            <label for="billing_state_label">State&nbsp;&nbsp;</label>
+
+                <!-- State dropdown -->
+                <select name="selected_billing_state" id="selected_billing_state">
+
+                    <option value="" selected disabled>Select a state</option>
+
+                    <?php while($billing_state_row = mysqli_fetch_array($all_states_billing_query_result)):;?>
+
+                        <option value="<?php echo $billing_state_row[0];?>"><?php echo $billing_state_row[0];?></option>
+
+                        <script type="text/javascript">
+                            document.getElementById('selected_billing_state').value = "<?php echo "$edited_billing_state"; ?>";
+                        </script>
+
+                    <?php endwhile;?>
+                
+                </select><br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <!-- State error message -->
+        <label class="error"><?php echo "$billing_state_message";?></label><br><br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+
+        <!-- Zip Code label-->
+        <label for="billing_zip_code_label">Zip Code&nbsp;&nbsp;</label>
+
+        <!-- Zip Code textbox -->
+        <input type="text" name="billing_zip_code_edited" id="billing_zip_code_label" value="<?php echo "$edited_billing_zip_code"; ?>"><br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+
+        <!-- Zip code error message-->
+        <label class="error"><?php echo "$billing_zip_code_message";?></label><br><br>
+
+        <h6><span>Shipping Address</span></h6><br>
+
+        <!-- SHIPPING ADDRESS -->
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+            <!-- Street label-->
+            <label for="shipping_street_label">Street&nbsp;&nbsp;</label>
+
+            <!-- Street textbox -->
+            <input type="text" name="shipping_street_edited" id="shipping_street_label" value="<?php echo "$edited_shipping_street"; ?>"><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <!-- Street error message-->
+            <label class="error"><?php echo "$shipping_street_message";?></label><br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+            <!-- City label -->
+            <label for="shipping_city_label">City&nbsp;&nbsp;</label>
+
+            <!-- City textbox -->
+            <input type="text" name="shipping_city_edited" id="shipping_city_label" value="<?php echo "$edited_shipping_city"; ?>"><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <!-- City error message -->
+            <label class="error"><?php echo "$shipping_city_message";?></label><br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <!-- State label -->
+            <label for="shipping_state_label">State&nbsp;&nbsp;</label>
+
+                <!-- State dropdown -->
+                <select name="selected_shipping_state" id="selected_shipping_state">
+
+                    <option value="" selected disabled>Select a state</option>
+
+                    <?php while($shipping_state_row = mysqli_fetch_array($all_states_shipping_query_result)):;?>
+
+                        <option value="<?php echo $shipping_state_row[0];?>"><?php echo $shipping_state_row[0];?></option>
+
+                        <script type="text/javascript">
+                            document.getElementById('selected_shipping_state').value = "<?php echo "$edited_shipping_state"; ?>";
+                        </script>
+
+                    <?php endwhile;?>
+                
+                </select><br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+
+        <!-- State error message -->
+        <label class="error"><?php echo "$shipping_state_message";?></label><br><br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+
+        <!-- Zip Code label-->
+        <label for="shipping_zip_code_label">Zip Code&nbsp;&nbsp;</label>
+
+        <!-- Zip Code textbox -->
+        <input type="text" name="shipping_zip_code_edited" id="shipping_zip_code_label" value="<?php echo "$edited_shipping_zip_code"; ?>"><br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <!-- Zip code error message-->
+        <label class="error"><?php echo "$shipping_zip_code_message";?></label><br><br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <h6><span>Contact Information</span></h6><br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <!-- First name label-->
+            <label for="first_name_label">First Name&nbsp;&nbsp;</label>
+
+            <!-- First name textbox -->
+            <input type="text" name="first_name_edited" id="first_name_label" value="<?php echo "$edited_first_name"; ?>"><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <!-- First name error message-->
+            <label class="error"><?php echo "$first_name_message";?></label><br><br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <!-- Last name label-->
+            <label for="last_name_label">Last Name&nbsp;&nbsp;</label>
+
+            <!-- Last name textbox -->
+            <input type="text" name="last_name_edited" id="last_name_label" value="<?php echo "$edited_last_name"; ?>"><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <!-- Last name error message-->
+            <label class="error"><?php echo "$last_name_message";?></label><br><br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <!-- Phone number label-->
+            <label for="phone_number_label">Phone Number&nbsp;&nbsp;</label>
+
+            <!-- Phone number textbox -->
+            <input type="text" name="phone_number_edited" id="phone_number_label" value="<?php echo "$edited_phone_number"; ?>"><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <!-- Phone number error message-->
+            <label class="error"><?php echo "$phone_number_message";?></label><br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <!-- Email label-->
+            <label for="email_label">Email Address&nbsp;&nbsp;</label>
+
+            <!-- Email textbox -->
+            <input type="text" name="email_edited" id="email_label" value="<?php echo "$edited_email"; ?>"><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <!-- Email error message-->
+            <label class="error"><?php echo "$email_message";?></label><br><br><br>
+
+        <!-- CANCEL AND UPDATE BUTTON-->
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+
+        <!-- Cancel customer button -->
+        <button type="submit" name="cancel_customer_button" id="cancel_customer_button" onclick="reset_fields()" style="width: 200px;">Cancel</button>
+
+        <script type="text/javascript">
+            reset_fields()
+            {
+                document.getElementById("update_customer_form").reset();
+            }
+        </script>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <!-- Update customer button -->
+        <button type="submit" name="update_customer_button" id="update_customer_button" style="width: 200px;">Update</button><br><br>
+
+    </form> 
 
 </body>
 </html>
-
 
 
 

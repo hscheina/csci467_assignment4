@@ -1,3 +1,22 @@
+/* UPDATE CUSTOMER CSS */
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+h6 {
+   width: 50%; 
+   text-align: left; 
+   border-bottom: 1px solid #000; 
+   line-height: 0.1em;
+   margin: 10px 0 10px; 
+}
+
+/***************************************************************************/
 
 body { 
     background-image: url('geo.');
@@ -67,3 +86,4 @@ border: 1px solid black;
 font-size: 16px;
 font-weight: normal;
 }
+
