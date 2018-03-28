@@ -9,24 +9,21 @@
 }
 
 h6 {
-   width: 50%; 
+   width: 90%; 
    text-align: left; 
-   border-bottom: 1px solid #000; 
+   border-bottom: 1px solid #018DB1; 
    line-height: 0.1em;
    margin: 10px 0 10px; 
 }
 
 /***************************************************************************/
-
-body { 
-    background-image: url('geo.');
-        background-repeat: no-repeat;
-    background-position: 0px 192px; 
+body {
+background-color: white;
 }
 h6 {
-   width: 50%; 
+   width: 90%; 
    text-align: left; 
-   border-bottom: 1px solid #000; 
+   border-bottom: 1px solid #018DB1; 
    line-height: 0.1em;
    margin: 10px 0 10px; 
 } 
@@ -49,7 +46,7 @@ p {
     margin-top: 1em;
     margin-bottom: 1em;
     margin-left: 60;
-    margin-right: 500;
+    margin-right: 100;
 }
 table {
     border-collapse: collapse;

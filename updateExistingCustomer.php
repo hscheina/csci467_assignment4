@@ -7,23 +7,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Update Customer</title>
+    <title>MPC - Update Customer</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
 </head>
+<style>
+h6 {
+   width: 90%; 
+color: #4d4d4d;
+   text-align: left; 
+   border-bottom: 1px solid #018DB1; 
+   line-height: 0.1em;
+   margin: 10px 0 10px; 
+}
+</style>
 <body>
     
-    <!-- Customer drop down list -->
+<div class="content">          
+<h6><span>Update a Customer</span></h6><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+<!-- Customer drop down list -->
     <form method="POST" action="updateExistingCustomer.php" id="update_customer_form">
 
+
         <!-- SUCCESS MESSAGE -->
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label class="success"><?php echo "$success_message";?></label><label class="error"><?php echo "$error_message";?></label><br><br>
+
 
         
         <h6><span>Update a Customer</span></h6><br>
 
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="success"><?php echo "$customer_message";?></label>	
+      <label class="error"><?php echo "$error_message";?></label><br><br>
+
+
 
         <label for="search-customer-label">Select a Customer&nbsp;&nbsp;</label>
 
@@ -198,14 +219,13 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
 
         <!-- Cancel customer button -->
+
         <button type="submit" name="cancel_customer_button" id="cancel_customer_button" onclick="reset_fields(); cancel_customer_button_clicked();" style="width: 200px;">Cancel</button>
 
-        <script type="text/javascript">
-            reset_fields()
-            {
-                document.getElementById("update_customer_form").reset();
-            }
-        </script>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" name="cancel_customer_button" id="cancel_customer_button" onclick="reset_fields()" style="width: 200px;">Cancel</button>
+
+
+        
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -213,6 +233,7 @@
         <button onclick="update_customer_button_clicked()" type="submit" name="update_customer_button" id="update_customer_button" style="width: 200px;">Update</button><br><br>
 
     </form> 
+
 
     <script>
 
@@ -313,6 +334,9 @@
         }//end update_customer_button_clicked()
     
     </script>
+
+
+</div>
 
 </body>
 </html>

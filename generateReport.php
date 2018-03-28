@@ -1,10 +1,19 @@
 <html>
 <head>
-<title>Generate Report</title>
+<title>MPC - Generate Report</title>
 <link rel = "stylesheet"
    type = "text/css"
    href = "stylesheet.css" />
-
+<style>
+h6 {
+   width: 90%; 
+color: #4d4d4d;
+   text-align: left; 
+   border-bottom: 1px solid #018DB1; 
+   line-height: 0.1em;
+   margin: 10px 0 10px; 
+}
+</style>
 </head>
 <body>
 <?php
@@ -14,20 +23,20 @@ include ("conn.php");
 
 
 $sql="select description from ItemTypes";
-$sqll="select order_id from allOrders";
+$sqll="select allOrders.order_id, Customers.customername from allOrders, Customers where allOrders.cust_id=Customers.id";
 
-echo '<br>';
+echo "<div class='content'>";
 echo '<h6><span>Generate Report</span></h6>';
 
 echo '<form name="generateReport" id="generateReport"
         action="generateReport.php" method="post">';
 echo '<br>';
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-        echo "<input type='radio' name='reportType' id='reportType' value='summary'>";
-	echo "<label for='reportType'>&nbsp;Summary &nbsp;&nbsp;&nbsp;&nbsp;</label>";
+        echo "<input type='radio' name='reportType' id='reportType' value='detail' checked='checked'>";
+	echo "<label for='reportType'>&nbsp;Detail &nbsp;&nbsp;&nbsp;&nbsp;</label>";
 
-        echo "<input type='radio' name='reportType' id='reportType' value='detail'>";
-	echo "<label for='reportType'>&nbsp;Detail &nbsp;</label><br>";
+        echo "<input type='radio' name='reportType' id='reportType' value='summary'>";
+	echo "<label for='reportType'>&nbsp;Summary &nbsp;</label><br><br>";
 
 
 
@@ -36,26 +45,28 @@ echo '<h6><span>Select a Customer Order</span></h6>';
 echo '<br>';
  echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='customerOrderSelection'>Select an Order &nbsp;&nbsp;</label>";
-        echo '<select name="customerOrderSelection">';
+        echo '<select name="customerOrderSelection" required="required">';
+echo "<option value='' selected disabled>Select an order</option>";
         foreach ($conn->query($sqll) as $row)
         {
                 echo '<option value="';
                 echo $row["order_id"];
                 echo '">';
-                echo $row["order_id"];
+                echo "#".$row["order_id"]." ".$row["customername"];
                 echo '</option>';
         }
 echo '</select>&nbsp;&nbsp;';
 echo '<br>';
-echo '<br>';
+echo '<br><br>';
 
 echo '<h6><span>Select a Sort Order</span></h6><br>';
  echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='sortOrderSelection'>Sort by &nbsp;&nbsp;</label>";
-        echo '<select name="sortOrderSelection">';
+
+        echo '<select name="sortOrderSelection" required="required">';
+		echo "<option value='' selected disabled>Select a sort order</option>";
 		 echo '<option value="price">Item price</option>';
 		echo '<option value="quantity">Item quantity</option>';
-		echo '<option value="price">Item price</option>';
 		echo '<option value="name">Item name</option>';
 		echo '<option value="description">Item type</option>';
 echo '</select>&nbsp;&nbsp;';
@@ -64,7 +75,7 @@ echo '<br>';
 
         echo '<input type="hidden" name="which" value="generateReport">';
 
-echo '<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" style="width: 200px;" align="middle" value="Cancel">';
+echo '<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" style="width: 200px;" align="middle" value="Cancel">';
         echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
         echo '<input type="submit" style="width: 200px;" align="middle" value="Produce Report">';
 
@@ -74,6 +85,7 @@ $testvar="test";
 
 echo "</form>";
 echo '</table>';
+echo "</div>";
 /************************************************************/
 if ($_SERVER['REQUEST_METHOD']=='POST')
 {

@@ -1,14 +1,15 @@
 <html>
 <head>
-<title>Create a New Order</title>
-
+<title>MPC - Create a New Order</title>
 
 
 <style>
+
 h6 {
-   width: 50%; 
+color: 4d4d4d;
+   width: 90%; 
    text-align: left; 
-   border-bottom: 1px solid #000; 
+   border-bottom: 1px solid #018DB1; 
    line-height: 0.1em;
    margin: 10px 0 10px; 
 } 
@@ -18,7 +19,7 @@ div.wrapper {
 }
 div.b {
 	font-size: 9px;
-	color: #E83F7C;
+	color: #018DB1;
 	text-indent: 100px;
 }
 h6 span {
@@ -28,7 +29,6 @@ h6 span {
 }
 table {
     border-collapse: collapse;
-    width: 100%;
 	table-layout: fixed;
 }
 
@@ -38,9 +38,9 @@ align: center;
     padding: 8px;
 }
 tr:nth-child(even) {background-color: #f2f2f2;}
-tr:hover {background-color: #fad1e0;}
+tr:hover {background-color: #bfbfbf;}
 th {
-    background-color: #E83F7C;
+    background-color: #018DB1;
     color: white;
 font-size: 16px;
 font-weight: normal;
@@ -63,15 +63,16 @@ session_start();
 
 
 
-
-echo '<br>';
+echo "<div class='content'>";
 echo '<h6><span>Create Customer Order</span></h6><br>';
 echo '<form name="createcustomerorder" id="createcustomerorder"
         action="createCustomerOrder.php" method="post">';
  echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='customerSelection'>Select a Customer &nbsp;&nbsp;</label>";
-        echo '<select name="customerSelection">';
-        foreach ($conn->query($sqll) as $row)
+        echo '<select name="customerSelection" required="required">';
+        echo "<option value='' selected disabled>Select an customer</option>";
+
+	foreach ($conn->query($sqll) as $row)
         {
                 echo '<option value="';
                 echo $row["id"];
@@ -81,13 +82,13 @@ echo "<label for='customerSelection'>Select a Customer &nbsp;&nbsp;</label>";
         }
 echo '</select>&nbsp;&nbsp;';
 echo '<br>';
-echo '<br>';
+echo '<br><br>';
 
 
 
 $query = "SELECT * FROM Items";
 echo '<h6><span>Select Items</span></h6><br>';
-echo "<table style='width:1200px' align='center'>";
+echo "<table style='width:880px' align='center'>";
 echo "<tr><th>" . "Select" . "</th>". "<th>" ."Name" . "</th><th>" ."Description" . "</th><th>" ."Price". "</th>" . "<th>" . "Quantity" . "</th></tr>";
 foreach($conn->query($query) as $row)
 {
@@ -103,8 +104,9 @@ echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
  echo '<input type="hidden" name="which" value="createcustomerorder">';
 
 echo "</div>";
-echo "</form>";
 
+echo "</form>";
+echo "</div>";
 /************************************************************/
 if ($_SERVER['REQUEST_METHOD']=='POST')
 {
@@ -142,7 +144,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
 			//echo $selected; the item id
 			//echo $_POST[$selected]; the quantity
 			}
-			echo "Order created successfully!";
+			echo "<script type='text/javascript'>alert('Order placed successfully!')</script>";
 			}
 
 			catch (PDOException $e) {
