@@ -71,10 +71,10 @@ echo '<h6><span>Shipping Address</span></h6>';
 echo '<br>';
 echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='customerShippingStreet'>Street &nbsp;&nbsp;</label>";
-        echo "<input type='text' name='customerShippingStreet' id='customerShippingStreet' pattern='[A-Za-z.0-9]+[ A-Za-z.0-9]*' title='Only characters, spaces, digits and .' required><br><br><br>";
+        echo "<input type='text' name='customerShippingStreet' id='customerShippingStreet' pattern='[A-Za-z.0-9]+[ A-Za-z.0-9]*' title='Only characters, spaces, digits and .' required><br><br>";
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
        echo "<label for='customerShippingCity'>City &nbsp;&nbsp;</label>";
-        echo "<input type='text' name='customerShippingCity' id='customerShippingCity' pattern='[A-Za-z]+[ A-Za-z]*' title='Only characters and spaces' required><br><br><br>";
+        echo "<input type='text' name='customerShippingCity' id='customerShippingCity' pattern='[A-Za-z]+[ A-Za-z]*' title='Only characters and spaces' required><br><br>";
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
         echo "<label for='customerShippingState'>State &nbsp;&nbsp;</label>";
         echo '<select name="customerShippingState" required="required">';
@@ -88,10 +88,10 @@ echo "<option value='' selected disabled>Select a state</option>";
 		echo $row["abbr"];
                 echo '</option>';
         }
-        echo '</select><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+        echo '</select><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 
 echo "<label for='customerShippingZip'>Zip Code &nbsp;&nbsp;</label>";
-        echo "<input type='text' name='customerShippingZip' id='customerShippingZip' pattern='[0-9]{5,5}' title='Only 5 numbers' required><br><br>";
+        echo "<input type='text' name='customerShippingZip' id='customerShippingZip' pattern='[0-9]{5,5}' title='Only 5 numbers' required><br>";
 
 
 echo '<br>';
@@ -99,17 +99,17 @@ echo '<h6><span>Contact Information</span></h6>';
 echo '<br>';
 echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='contactFirstName'>First Name &nbsp;&nbsp;</label>";
-        echo "<input type='text' name='contactFirstName' id='contactFirstName' pattern='[A-Za-z-]+[ A-Za-z]*' title='Only characters, spaces, and -' required><br><br><br>";
+        echo "<input type='text' name='contactFirstName' id='contactFirstName' pattern='[A-Za-z-]+[ A-Za-z]*' title='Only characters, spaces, and -' required><br><br>";
 echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='contactLastName'>Last Name &nbsp;&nbsp;</label>";
-        echo "<input type='text' name='contactLastName' id='contactLastName'pattern='[A-Za-z-]+[ A-Za-z]*' title='Only characters, spaces, and -' required><br><br><br>";
+        echo "<input type='text' name='contactLastName' id='contactLastName'pattern='[A-Za-z-]+[ A-Za-z]*' title='Only characters, spaces, and -' required><br><br>";
 echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='contactPhoneNumber'>Phone Number &nbsp;&nbsp;</label>";
-        echo "<input type='text' name='contactPhoneNumber' id='contactPhoneNumber' pattern='[0-9]{10,10}' title='10 digit number please' required><br><br><br>";
+        echo "<input type='text' name='contactPhoneNumber' id='contactPhoneNumber' pattern='[0-9]{10,10}' title='10 digit number please' required><br><br>";
 echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='contactEmail'>Email Address &nbsp;&nbsp;</label>";
 echo '&nbsp;&nbsp;';
-        echo "<input type='text' name='contactEmail' id='contactEmail' pattern='([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})'  title='Valid email please' required ><br><br>";
+        echo "<input type='text' name='contactEmail' id='contactEmail' pattern='([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})'  title='Valid email please' required ><br>";
 	echo '<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" style="width: 200px;" align="middle" value="Cancel">';
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
         echo '<input type="submit" style="width: 200px;" align="middle" value="Create New Customer">';
