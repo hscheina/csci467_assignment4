@@ -70,7 +70,9 @@ echo '<form name="createcustomerorder" id="createcustomerorder"
  echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='customerSelection'>Select a Customer &nbsp;&nbsp;</label>";
         echo '<select name="customerSelection">';
-        foreach ($conn->query($sqll) as $row)
+        echo "<option value='' selected disabled>Select an customer</option>";
+
+	foreach ($conn->query($sqll) as $row)
         {
                 echo '<option value="';
                 echo $row["id"];
@@ -80,7 +82,7 @@ echo "<label for='customerSelection'>Select a Customer &nbsp;&nbsp;</label>";
         }
 echo '</select>&nbsp;&nbsp;';
 echo '<br>';
-echo '<br>';
+echo '<br><br>';
 
 
 
