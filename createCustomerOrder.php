@@ -92,7 +92,7 @@ echo "<table style='width:880px' align='center'>";
 echo "<tr><th>" . "Select" . "</th>". "<th>" ."Name" . "</th><th>" ."Description" . "</th><th>" ."Price". "</th>" . "<th>" . "Quantity" . "</th></tr>";
 foreach($conn->query($query) as $row)
 {
-echo "<tr>" . "<td>" . "<input type='checkbox' id='itemSelect' name='itemSelect[]' value=$row[id]  >" . "</td>" . "<td>" . $row['name'] . "</td><td>" . $row['description'] . "</td><td>" . $row['price'] . "</td>" . "<td>" . "<input type='text' id=$row[id] name=$row[id] size='10' pattern=[0-9]+>" . "</td></tr>";
+echo "<tr>" . "<td>" . "<input type='checkbox' id='itemSelect' name='itemSelect[]' value=$row[id]  >" . "</td>" . "<td>" . $row['name'] . "</td><td>" . $row['description'] . "</td><td>\$" . $row['price'] . "</td>" . "<td>" . "<input type='text' id=$row[id] name=$row[id] size='10' pattern=[0-9]+>" . "</td></tr>";
 
 }
 

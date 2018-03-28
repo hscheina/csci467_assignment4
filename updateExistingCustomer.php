@@ -1,8 +1,3 @@
-<?php
-    include 'AIPHeader.php';
-    include 'conn.php';
-    include 'updateExistingCustomer.inc.php';
-?>
 
 <!DOCTYPE html>
 <html>
@@ -22,6 +17,12 @@ color: #4d4d4d;
 }
 
 </style>
+<?php
+    include 'AIPHeader.php';
+    include 'conn.php';
+    include 'updateExistingCustomer.inc.php';
+?>
+
 <body>
 <div class="content">    
     <!-- Customer drop down list -->
