@@ -1,9 +1,7 @@
 <?php
-
     include 'AIPHeader.php';
     include 'conn.php';
     include 'updateExistingCustomer.inc.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -47,11 +45,7 @@
 
         </select>&nbsp;&nbsp;&nbsp;
 
-        <button type="submit" name="edit_customer_button" id="edit_customer_button">EDIT</button><br>
-
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-        <label class="error"><?php echo "$selected_customer_message";?></label><br><br>
+        <button onclick="edit_customer_button_clicked()" type="submit" name="edit_customer_button" id="edit_customer_button">EDIT</button><br><br>
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -61,12 +55,7 @@
             <label for="customer_name_label">Customer Name&nbsp;&nbsp;</label>
 
             <!-- Customer name textbox -->
-            <input type="text" name="customer_name_edited" id="customer_name_label" value="<?php echo "$edited_customer_name"; ?>"><br>
-
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <!-- Customer name error message-->
-            <label class="error"><?php echo "$customer_name_message";?></label><br><br>
+            <input type="text" name="customer_name_edited" id="customer_name_textbox" value="<?php echo "$edited_customer_name"; ?>" pattern='[A-Za-z0-9]+[ A-Za-z0-9]*' title='Only characters, spaces and numbers'><br><br>
 
         <h6><span>Billing Address</span></h6><br>
 
@@ -78,12 +67,7 @@
             <label for="billing_street_label">Street&nbsp;&nbsp;</label>
 
             <!-- Street textbox -->
-            <input type="text" name="billing_street_edited" id="billing_street_label" value="<?php echo "$edited_billing_street"; ?>"><br>
-
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <!-- Street error message-->
-            <label class="error"><?php echo "$billing_street_message";?></label><br><br>
+            <input type="text" name="billing_street_edited" id="billing_street_textbox" value="<?php echo "$edited_billing_street"; ?>" pattern='[A-Za-z0-9]+[ A-Za-z0-9]*' title='Only characters and spaces'><br><br>
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             
@@ -91,12 +75,7 @@
             <label for="billing_city_label">City&nbsp;&nbsp;</label>
 
             <!-- City textbox -->
-            <input type="text" name="billing_city_edited" id="billing_city_label" value="<?php echo "$edited_billing_city"; ?>"><br>
-
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <!-- City error message -->
-            <label class="error"><?php echo "$billing_city_message";?></label><br><br>
+            <input type="text" name="billing_city_edited" id="billing_city_textbox" value="<?php echo "$edited_billing_city"; ?>" pattern='[A-Za-z]+[ A-Za-z]*' title='Only characters and spaces'><br><br>
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -118,12 +97,7 @@
 
                     <?php endwhile;?>
                 
-                </select><br>
-
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-        <!-- State error message -->
-        <label class="error"><?php echo "$billing_state_message";?></label><br><br>
+                </select><br><br>
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
 
@@ -131,12 +105,7 @@
         <label for="billing_zip_code_label">Zip Code&nbsp;&nbsp;</label>
 
         <!-- Zip Code textbox -->
-        <input type="text" name="billing_zip_code_edited" id="billing_zip_code_label" value="<?php echo "$edited_billing_zip_code"; ?>"><br>
-
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-
-        <!-- Zip code error message-->
-        <label class="error"><?php echo "$billing_zip_code_message";?></label><br><br>
+        <input type="text" name="billing_zip_code_edited" id="billing_zip_code_textbox" value="<?php echo "$edited_billing_zip_code"; ?>" pattern='[0-9]{5,5}' title='Only numbers, 5 long'><br><br>
 
         <h6><span>Shipping Address</span></h6><br>
 
@@ -148,12 +117,7 @@
             <label for="shipping_street_label">Street&nbsp;&nbsp;</label>
 
             <!-- Street textbox -->
-            <input type="text" name="shipping_street_edited" id="shipping_street_label" value="<?php echo "$edited_shipping_street"; ?>"><br>
-
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <!-- Street error message-->
-            <label class="error"><?php echo "$shipping_street_message";?></label><br><br>
+            <input type="text" name="shipping_street_edited" id="shipping_street_textbox" value="<?php echo "$edited_shipping_street"; ?>" pattern='[A-Za-z0-9]+[ A-Za-z0-9]*' title='Only characters and spaces'><br><br>
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             
@@ -161,12 +125,7 @@
             <label for="shipping_city_label">City&nbsp;&nbsp;</label>
 
             <!-- City textbox -->
-            <input type="text" name="shipping_city_edited" id="shipping_city_label" value="<?php echo "$edited_shipping_city"; ?>"><br>
-
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <!-- City error message -->
-            <label class="error"><?php echo "$shipping_city_message";?></label><br><br>
+            <input type="text" name="shipping_city_edited" id="shipping_city_textbox" value="<?php echo "$edited_shipping_city"; ?>" pattern='[A-Za-z]+[ A-Za-z]*' title='Only characters and spaces'><br><br>
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -188,12 +147,7 @@
 
                     <?php endwhile;?>
                 
-                </select><br>
-
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-
-        <!-- State error message -->
-        <label class="error"><?php echo "$shipping_state_message";?></label><br><br>
+                </select><br><br>
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
 
@@ -201,12 +155,7 @@
         <label for="shipping_zip_code_label">Zip Code&nbsp;&nbsp;</label>
 
         <!-- Zip Code textbox -->
-        <input type="text" name="shipping_zip_code_edited" id="shipping_zip_code_label" value="<?php echo "$edited_shipping_zip_code"; ?>"><br>
-
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-        <!-- Zip code error message-->
-        <label class="error"><?php echo "$shipping_zip_code_message";?></label><br><br>
+        <input type="text" name="shipping_zip_code_edited" id="shipping_zip_code_textbox" value="<?php echo "$edited_shipping_zip_code"; ?>" pattern='[0-9]{5,5}' title='Only 5 numbers'><br><br>
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -218,12 +167,7 @@
             <label for="first_name_label">First Name&nbsp;&nbsp;</label>
 
             <!-- First name textbox -->
-            <input type="text" name="first_name_edited" id="first_name_label" value="<?php echo "$edited_first_name"; ?>"><br>
-
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <!-- First name error message-->
-            <label class="error"><?php echo "$first_name_message";?></label><br><br>
+            <input type="text" name="first_name_edited" id="first_name_textbox" value="<?php echo "$edited_first_name"; ?>" pattern='[ A-Za-z-]+' title='Only characters and -'><br><br>
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -231,12 +175,7 @@
             <label for="last_name_label">Last Name&nbsp;&nbsp;</label>
 
             <!-- Last name textbox -->
-            <input type="text" name="last_name_edited" id="last_name_label" value="<?php echo "$edited_last_name"; ?>"><br>
-
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <!-- Last name error message-->
-            <label class="error"><?php echo "$last_name_message";?></label><br><br>
+            <input type="text" name="last_name_edited" id="last_name_textbox" value="<?php echo "$edited_last_name"; ?>" pattern='[A-Za-z-]+' title='Only characters and -'><br><br>
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -244,12 +183,7 @@
             <label for="phone_number_label">Phone Number&nbsp;&nbsp;</label>
 
             <!-- Phone number textbox -->
-            <input type="text" name="phone_number_edited" id="phone_number_label" value="<?php echo "$edited_phone_number"; ?>"><br>
-
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <!-- Phone number error message-->
-            <label class="error"><?php echo "$phone_number_message";?></label><br><br>
+            <input type="text" name="phone_number_edited" id="phone_number_textbox" value="<?php echo "$edited_phone_number"; ?>" pattern='[0-9]{10,10}' title='10 digit number please'><br><br>
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -257,19 +191,14 @@
             <label for="email_label">Email Address&nbsp;&nbsp;</label>
 
             <!-- Email textbox -->
-            <input type="text" name="email_edited" id="email_label" value="<?php echo "$edited_email"; ?>"><br>
-
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <!-- Email error message-->
-            <label class="error"><?php echo "$email_message";?></label><br><br><br>
+            <input type="text" name="email_edited" id="email_textbox" value="<?php echo "$edited_email"; ?>" pattern='([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})'  title='Valid email please'><br><br><br>
 
         <!-- CANCEL AND UPDATE BUTTON-->
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
 
         <!-- Cancel customer button -->
-        <button type="submit" name="cancel_customer_button" id="cancel_customer_button" onclick="reset_fields()" style="width: 200px;">Cancel</button>
+        <button type="submit" name="cancel_customer_button" id="cancel_customer_button" onclick="reset_fields(); cancel_customer_button_clicked();" style="width: 200px;">Cancel</button>
 
         <script type="text/javascript">
             reset_fields()
@@ -281,9 +210,109 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
         <!-- Update customer button -->
-        <button type="submit" name="update_customer_button" id="update_customer_button" style="width: 200px;">Update</button><br><br>
+        <button onclick="update_customer_button_clicked()" type="submit" name="update_customer_button" id="update_customer_button" style="width: 200px;">Update</button><br><br>
 
     </form> 
+
+    <script>
+
+        /* Enable or disable error checking when edit button is clicked*/
+        function edit_customer_button_clicked()
+        {
+
+            //Get selected customer
+            var get_selected_customer = document.getElementById("selected_customer").value;
+
+            //If no customer was selected, display error message
+            if (get_selected_customer == "")
+            {
+                //Selected customer
+                document.getElementById("selected_customer").required = true;
+            }
+            //If a user was selected, enable error checking for the rest of the fields
+            else
+            {
+                //Selected customer
+                document.getElementById("selected_customer").required = false;
+
+                //Customer name
+                document.getElementById("customer_name_textbox").required = false;
+
+                //Billing Address
+                document.getElementById("billing_street_textbox").required = false;
+                document.getElementById("billing_city_textbox").required = false;
+                document.getElementById("billing_zip_code_textbox").required = false;
+
+                //Shipping Address
+                document.getElementById("shipping_street_textbox").required = false;
+                document.getElementById("shipping_city_textbox").required = false;
+                document.getElementById("shipping_zip_code_textbox").required = false;
+
+                //Contact Information
+                document.getElementById("first_name_textbox").required = false;
+                document.getElementById("last_name_textbox").required = false;
+                document.getElementById("phone_number_textbox").required = false;
+                document.getElementById("email_textbox").required = false;
+            }//end else
+
+        }//endif
+
+        /* Disable error checking if cancel button is clicked */
+        function cancel_customer_button_clicked()
+        {
+
+            //Selected customer
+            document.getElementById("selected_customer").required = false;
+
+            //Customer name
+            document.getElementById("customer_name_textbox").required = false;
+
+            //Billing Address
+            document.getElementById("billing_street_textbox").required = false;
+            document.getElementById("billing_city_textbox").required = false;
+            document.getElementById("billing_zip_code_textbox").required = false;
+
+            //Shipping Address
+            document.getElementById("shipping_street_textbox").required = false;
+            document.getElementById("shipping_city_textbox").required = false;
+            document.getElementById("shipping_zip_code_textbox").required = false;
+
+            //Contact Information
+            document.getElementById("first_name_textbox").required = false;
+            document.getElementById("last_name_textbox").required = false;
+            document.getElementById("phone_number_textbox").required = false;
+            document.getElementById("email_textbox").required = false;
+        }
+
+        //If user clicked the submit button, enable all fields
+        function update_customer_button_clicked()
+        {
+
+            //Selected customer
+            document.getElementById("selected_customer").required = true;
+
+            //Customer name
+            document.getElementById("customer_name_textbox").required = true;
+
+            //Billing Address
+            document.getElementById("billing_street_textbox").required = true;
+            document.getElementById("billing_city_textbox").required = true;
+            document.getElementById("billing_zip_code_textbox").required = true;
+
+            //Shipping Address
+            document.getElementById("shipping_street_textbox").required = true;
+            document.getElementById("shipping_city_textbox").required = true;
+            document.getElementById("shipping_zip_code_textbox").required = true;
+
+            //Contact Information
+            document.getElementById("first_name_textbox").required = true;
+            document.getElementById("last_name_textbox").required = true;
+            document.getElementById("phone_number_textbox").required = true;
+            document.getElementById("email_textbox").required = true;
+            
+        }//end update_customer_button_clicked()
+    
+    </script>
 
 </body>
 </html>
