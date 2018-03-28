@@ -20,15 +20,24 @@ color: #4d4d4d;
    line-height: 0.1em;
    margin: 10px 0 10px; 
 }
+
 </style>
 <body>
 <div class="content">    
     <!-- Customer drop down list -->
     <form method="POST" action="updateExistingCustomer.php" id="update_customer_form">
 
-        <!-- SUCCESS MESSAGE -->
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label class="success"><?php echo $success_message;?></label><label class="error"><?php echo "$error_message";?></label><br><br>
+
+
+
+
+
+
+
+
+
+
+
 
         
         <h6><span>Update a Customer</span></h6><br>
@@ -127,7 +136,7 @@ color: #4d4d4d;
             <label for="shipping_street_label">Street&nbsp;&nbsp;</label>
 
             <!-- Street textbox -->
-            <input type="text" name="shipping_street_edited" id="shipping_street_textbox" value="<?php echo "$edited_shipping_street"; ?>" pattern='[A-Za-z0-9.]+[ .A-Za-z0-9]' title='Only letters, numbers, spaces, and .'><br><br>
+            <input type="text" name="shipping_street_edited" id="shipping_street_textbox" value="<?php echo "$edited_shipping_street"; ?>" pattern='[A-Za-z0-9.]+[ .A-Za-z0-9]*' title='Only letters, numbers, spaces, and .'><br><br>
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             
@@ -221,6 +230,10 @@ color: #4d4d4d;
         <!-- Update customer button -->
         <button onclick="update_customer_button_clicked()" type="submit" name="update_customer_button" id="update_customer_button" style="width: 200px;">Update</button><br><br>
 
+
+<!-- SUCCESS MESSAGE -->
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="success"><?php echo $success_message;?></label><label class="error"><?php echo "$error_message";?></label>
     </form> 
 
     <script>
