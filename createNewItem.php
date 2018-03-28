@@ -35,7 +35,7 @@ echo '<form name="createnewitem" id="createnewitem"
 echo '<br>';
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 	echo "<label for='name'>Item Name &nbsp;&nbsp;</label>";
-        echo "<input type='text' name='name' id='name' pattern=[a-zA-Z()\-\/.0-9\[\]~_]+ title='Only spaces, alphanumeric and ()- / . [ ] ~ _' required><br><br>";
+        echo "<input type='text' name='name' id='name' pattern=[ a-zA-Z()\-\/.0-9\[\]~_]+ title='Only spaces, alphanumeric and ()- / . [ ] ~ _' required><br><br>";
 echo '<br>';
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='description'>Type &nbsp;&nbsp;</label>";
