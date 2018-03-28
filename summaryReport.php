@@ -52,6 +52,8 @@ if ($sortOrderSelection=="quantity")
 	{
 		$query = "select Items.name, Items.description, Items.price, purchases.qty from Items, purchases, allOrders where allOrders.order_id=purchases.order_id and purchases.item_id=Items.id and allOrders.order_id=$customerOrderSelection order by purchases.qty";
 	}
+else
+{
 if ($sortOrderSelection=="type")
 	{
 		$query = "select Items.name, Items.description, Items.price, purchases.qty from Items, purchases, allOrders where allOrders.order_id=purchases.order_id and purchases.item_id=Items.id and allOrders.order_id=$customerOrderSelection order by Items.description";
@@ -60,6 +62,7 @@ else
 	{
 		$query = "select Items.name, Items.description, Items.price, purchases.qty from Items, purchases, allOrders where allOrders.order_id=purchases.order_id and purchases.item_id=Items.id and allOrders.order_id=$customerOrderSelection order by Items.$sortOrderSelection";
 	}
+}
 $sumquery = "select sum(purchases.qty*Items.price) from Items, allOrders, purchases where allOrders.order_id=purchases.order_id and Items.id=purchases.item_id and allOrders.order_id=$customerOrderSelection";
 echo "<table style='width:1000px' align='center'>";
 echo "<tr><th>" . "Item Name" . "</th>". "<th>" ."Item Type" . "</th><th>" ."Item Price" . "</th><th>" ."Item Quantity". "</th></tr>";
