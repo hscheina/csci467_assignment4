@@ -37,16 +37,17 @@ echo '<br>';
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 	echo "<label for='customerName'>Customer Name &nbsp;</label>";
         echo "<input type='text' name='customerName' id='customerName' pattern='[A-Za-z0-9]+[ A-Za-z0-9]*' title='Only characters, spaces and numbers' required><br><br>";
-echo '<br>';
+
+
 	echo '<h6><span>Billing Address</span></h6>';
 	echo '<br>';
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 	echo "<label for='customerBillingStreet'>Street &nbsp;&nbsp;</label>";
-        echo "<input type='text' name='customerBillingStreet' id='customerBillingStreet' pattern='[A-Za-z0-9.]+[ .A-Za-z0-9]*' title='Only characters, spaces, numbers and .' required><br><br>";
+        echo "<input type='text' name='customerBillingStreet' id='customerBillingStreet' pattern='[A-Za-z0-9.]+[ .A-Za-z0-9]*' title='Only characters, spaces, numbers and .' required><br>";
 	echo '<br>';
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
        echo "<label for='customerBillingCity'>City &nbsp;&nbsp;</label>";
-        echo "<input type='text' name='customerBillingCity' id='customerBillingCity' pattern='[A-Za-z]+[ A-Za-z]*' title='Only characters and spaces' required><br><br><br>";
+        echo "<input type='text' name='customerBillingCity' id='customerBillingCity' pattern='[A-Za-z]+[ A-Za-z]*' title='Only characters and spaces' required><br><br>";
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='customerBillingState'>State &nbsp;&nbsp;</label>";
         echo '<select name="customerBillingState" required="required">';
@@ -60,10 +61,10 @@ echo "<option value='' selected disabled>Select a state</option>";
 		echo $row["abbr"];
                 echo '</option>';
         }
-        echo '</select><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+        echo '</select><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 
        echo "<label for='customerBillingZip'>Zip Code &nbsp;&nbsp;</label>";
-        echo "<input type='text' name='customerBillingZip' id='customerBillingZip' pattern='[0-9]{5,5}' title='Only numbers, 5 long' required><br><br>";
+        echo "<input type='text' name='customerBillingZip' id='customerBillingZip' pattern='[0-9]{5,5}' title='Only numbers, 5 long' required><br>";
 
 echo '<br>';
 echo '<h6><span>Shipping Address</span></h6>';

@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
 </head>
 <body>
-    
+<div class="content">    
     <!-- Customer drop down list -->
     <form method="POST" action="updateExistingCustomer.php" id="update_customer_form">
 
@@ -195,8 +195,7 @@
 
         <!-- CANCEL AND UPDATE BUTTON-->
 
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <!-- Cancel customer button -->
         <button type="submit" name="cancel_customer_button" id="cancel_customer_button" onclick="reset_fields(); cancel_customer_button_clicked();" style="width: 200px;">Cancel</button>
 
@@ -313,7 +312,7 @@
         }//end update_customer_button_clicked()
     
     </script>
-
+</div>
 </body>
 </html>
 
