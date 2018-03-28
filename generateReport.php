@@ -45,7 +45,7 @@ echo '<h6><span>Select a Customer Order</span></h6>';
 echo '<br>';
  echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='customerOrderSelection'>Select an Order &nbsp;&nbsp;</label>";
-        echo '<select name="customerOrderSelection">';
+        echo '<select name="customerOrderSelection" required="required">';
 echo "<option value='' selected disabled>Select an order</option>";
         foreach ($conn->query($sqll) as $row)
         {
@@ -63,7 +63,7 @@ echo '<h6><span>Select a Sort Order</span></h6><br>';
  echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='sortOrderSelection'>Sort by &nbsp;&nbsp;</label>";
 
-        echo '<select name="sortOrderSelection">';
+        echo '<select name="sortOrderSelection" required="required">';
 		echo "<option value='' selected disabled>Select a sort order</option>";
 		 echo '<option value="price">Item price</option>';
 		echo '<option value="quantity">Item quantity</option>';

@@ -49,7 +49,7 @@ echo '<br>';
         echo "<input type='text' name='customerBillingCity' id='customerBillingCity' pattern='[A-Za-z]+[ A-Za-z]*' title='Only characters and spaces' required><br><br><br>";
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='customerBillingState'>State &nbsp;&nbsp;</label>";
-        echo '<select name="customerBillingState">';
+        echo '<select name="customerBillingState" required="required">';
 echo "<option value='' selected disabled>Select a state</option>";
 
         foreach ($conn->query($sql) as $row)
@@ -76,7 +76,7 @@ echo "<label for='customerShippingStreet'>Street &nbsp;&nbsp;</label>";
         echo "<input type='text' name='customerShippingCity' id='customerShippingCity' pattern='[A-Za-z]+[ A-Za-z]*' title='Only characters and spaces' required><br><br><br>";
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
         echo "<label for='customerShippingState'>State &nbsp;&nbsp;</label>";
-        echo '<select name="customerShippingState">';
+        echo '<select name="customerShippingState" required="required">';
 echo "<option value='' selected disabled>Select a state</option>";
 
         foreach ($conn->query($sql) as $row)

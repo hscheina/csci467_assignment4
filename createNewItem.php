@@ -39,7 +39,7 @@ echo '<br>';
 echo '<br>';
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='description'>Type &nbsp;&nbsp;</label>";
-        echo '<select name="description">';
+        echo '<select name="description" required="required">';
 echo "<option value='' selected disabled>Select item type</option>";
 
         foreach ($conn->query($sql) as $row)

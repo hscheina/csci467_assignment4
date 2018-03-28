@@ -69,7 +69,7 @@ echo '<form name="createcustomerorder" id="createcustomerorder"
         action="createCustomerOrder.php" method="post">';
  echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='customerSelection'>Select a Customer &nbsp;&nbsp;</label>";
-        echo '<select name="customerSelection">';
+        echo '<select name="customerSelection" required="required">';
         echo "<option value='' selected disabled>Select an customer</option>";
 
 	foreach ($conn->query($sqll) as $row)
