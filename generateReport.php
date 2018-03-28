@@ -40,7 +40,6 @@ echo '<br>';
 
 
 
-echo '<br>';
 echo '<h6><span>Select a Customer Order</span></h6>';
 echo '<br>';
  echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
@@ -56,7 +55,6 @@ echo "<option value='' selected disabled>Select an order</option>";
                 echo '</option>';
         }
 echo '</select>&nbsp;&nbsp;';
-echo '<br>';
 echo '<br><br>';
 
 echo '<h6><span>Select a Sort Order</span></h6><br>';
@@ -70,7 +68,6 @@ echo "<label for='sortOrderSelection'>Sort by &nbsp;&nbsp;</label>";
 		echo '<option value="name">Item name</option>';
 		echo '<option value="description">Item type</option>';
 echo '</select>&nbsp;&nbsp;';
-echo '<br>';
 echo '<br>';
 
         echo '<input type="hidden" name="which" value="generateReport">';

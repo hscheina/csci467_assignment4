@@ -82,7 +82,7 @@ echo "<label for='customerSelection'>Select a Customer &nbsp;&nbsp;</label>";
         }
 echo '</select>&nbsp;&nbsp;';
 echo '<br>';
-echo '<br><br>';
+echo '<br>';
 
 
 

@@ -34,7 +34,7 @@ echo '<br>';
 
 
 	echo "<label for='name'>Item Name &nbsp;&nbsp;</label>";
-        echo "<input type='text' name='name' id='name' pattern=[ a-zA-Z()\-\/.0-9\[\]~_]+ title='Only spaces, alphanumeric and ()- / . [ ] ~ _' required><br><br>";
+        echo "<input type='text' name='name' id='name' pattern=[ a-zA-Z()\-\/.0-9\[\]~_]+ title='Only spaces, alphanumeric and ()- / . [ ] ~ _' required><br>";
 
 echo '<br>';
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
@@ -51,7 +51,7 @@ echo "<option value='' selected disabled>Select item type</option>";
                 echo '</option>';
         }
         echo '</select>&nbsp;&nbsp;';
-	echo '<br><br><br>';
+	echo '<br><br>';
 echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
        echo "<label for='price'>Price &nbsp;&nbsp;</label>";
         echo "<input type='text' name='price' id='price' pattern=[0-9]{1,63}(\.[0-9]{0,2})? title='Only digits and .' required><br>";
