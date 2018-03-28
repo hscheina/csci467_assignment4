@@ -11,6 +11,16 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
 </head>
+<style>
+h6 {
+   width: 90%; 
+color: #4d4d4d;
+   text-align: left; 
+   border-bottom: 1px solid #018DB1; 
+   line-height: 0.1em;
+   margin: 10px 0 10px; 
+}
+</style>
 <body>
 <div class="content">    
     <!-- Customer drop down list -->
@@ -18,7 +28,7 @@
 
         <!-- SUCCESS MESSAGE -->
         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label class="success"><?php echo "$success_message";?></label><label class="error"><?php echo "$error_message";?></label><br><br>
+        <label class="success"><?php echo "<script type='text/javascript'>alert(Customer updated successfully!')</script>";?></label><label class="error"><?php echo "$error_message";?></label><br><br>
 
         
         <h6><span>Update a Customer</span></h6><br>
