@@ -92,7 +92,7 @@ echo "<table style='width:880px' align='center'>";
 echo "<tr><th>" . "Select" . "</th>". "<th>" ."Name" . "</th><th>" ."Description" . "</th><th>" ."Price". "</th>" . "<th>" . "Quantity" . "</th></tr>";
 foreach($conn->query($query) as $row)
 {
-echo "<tr>" . "<td>" . "<input type='checkbox' id='itemSelect' name='itemSelect[]' value=$row[id]  >" . "</td>" . "<td>" . $row['name'] . "</td><td>" . $row['description'] . "</td><td>\$" . $row['price'] . "</td>" . "<td>" . "<input type='text' id=$row[id] name=$row[id] size='10' pattern=[0-9]+>" . "</td></tr>";
+echo "<tr>" . "<td>" . "<input type='checkbox' id='itemSelect' name='itemSelect[]' value=$row[id]  >" . "</td>" . "<td>" . $row['name'] . "</td><td>" . $row['description'] . "</td><td>\$" . $row['price'] . "</td>" . "<td>" . "<input type='text' id=$row[id] name=$row[id] size='10' pattern=[0-9]+ title='Only numbers'>" . "</td></tr>";
 
 }
 
@@ -151,9 +151,9 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
 			echo "Oops, customer order could not be placed.<br>";
 			echo "error: ".$e->getMessage();
 			}
-			}else{echo "Put in a number for all selected items you nitwit!";}
+			}else{echo "<script type='text/javascript'>alert('Must input a quantity.')</script>";}
 		}else{echo "There is no informarion provided";}
-		}else{echo "Nothing was selected";}
+		}else{echo "<script type='text/javascript'>alert('Must select at least 1 item in order to process an order.')</script>";}
 //when button is pressed, create an order number
 //for each order, create a table as "ordernum(num)"
 //for each table, use all attributes from the selected customer
