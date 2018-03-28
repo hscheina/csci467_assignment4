@@ -12,7 +12,10 @@ table.linktable {
 }
 table.linktable td {
 text-align:left;
+align: left;
+padding: 0px;
 }
+tr:hover {background-color: #ffffff;}
 </style>
 <script>
 function w3_open() {

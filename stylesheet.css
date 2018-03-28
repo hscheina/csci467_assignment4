@@ -17,10 +17,8 @@ h6 {
 }
 
 /***************************************************************************/
-
-body { 
-	background-image: url("geo");
-        background-repeat: no-repeat;
+body {
+background-color: white;
 }
 h6 {
    width: 90%; 

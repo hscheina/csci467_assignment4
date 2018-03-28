@@ -5,6 +5,7 @@
 
 
 <style>
+
 h6 {
    width: 50%; 
    text-align: left; 
@@ -28,7 +29,6 @@ h6 span {
 }
 table {
     border-collapse: collapse;
-    width: 100%;
 	table-layout: fixed;
 }
 
