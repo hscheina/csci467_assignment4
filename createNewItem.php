@@ -54,7 +54,7 @@ echo "<option value='' selected disabled>Select item type</option>";
 	echo '<br><br><br>';
 echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
        echo "<label for='price'>Price &nbsp;&nbsp;</label>";
-        echo "<input type='text' name='price' id='price' pattern=[0-9]{1,63}(\.[0-9]{0,2})? title='Only the number, nothing other than digits and .' required><br>";
+        echo "<input type='text' name='price' id='price' pattern=[0-9]{1,63}(\.[0-9]{0,2})? title='Only digits and .' required><br>";
 
         echo '<input type="hidden" name="which" value="createnewitem">';
 

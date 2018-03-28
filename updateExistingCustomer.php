@@ -65,7 +65,7 @@ color: #4d4d4d;
             <label for="customer_name_label">Customer Name&nbsp;&nbsp;</label>
 
             <!-- Customer name textbox --> 
-            <input type="text" name="customer_name_edited" id="customer_name_textbox" value="<?php echo "$edited_customer_name"; ?>" pattern='[A-Za-z0-9]+[ A-Za-z0-9-.-]*' title='Only characters, spaces, numbers, and .'><br><br>
+            <input type="text" name="customer_name_edited" id="customer_name_textbox" value="<?php echo "$edited_customer_name"; ?>" pattern='[A-Za-z0-9]+[ A-Za-z0-9-.-]*' title='Only letters, numbers, spaces, and .'><br><br>
 
         <h6><span>Billing Address</span></h6><br>
 
@@ -77,7 +77,7 @@ color: #4d4d4d;
             <label for="billing_street_label">Street&nbsp;&nbsp;</label>
 
             <!-- Street textbox -->
-            <input type="text" name="billing_street_edited" id="billing_street_textbox" value="<?php echo "$edited_billing_street"; ?>" pattern='[A-Za-z0-9]+[ A-Za-z0-9]*' title='Only characters and spaces'><br><br>
+            <input type="text" name="billing_street_edited" id="billing_street_textbox" value="<?php echo "$edited_billing_street"; ?>" pattern='[A-Za-z0-9.]+[ .A-Za-z0-9]*' title='Only letters, numbers, spaces, and .'><br><br>
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             
@@ -85,7 +85,7 @@ color: #4d4d4d;
             <label for="billing_city_label">City&nbsp;&nbsp;</label>
 
             <!-- City textbox -->
-            <input type="text" name="billing_city_edited" id="billing_city_textbox" value="<?php echo "$edited_billing_city"; ?>" pattern='[A-Za-z]+[ A-Za-z.\-]*' title='Only characters, spaces, and . -'><br><br>
+            <input type="text" name="billing_city_edited" id="billing_city_textbox" value="<?php echo "$edited_billing_city"; ?>" pattern='[A-Za-z]+[ A-Za-z.\-]*' title='Only letters, spaces, and . -'><br><br>
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -127,7 +127,7 @@ color: #4d4d4d;
             <label for="shipping_street_label">Street&nbsp;&nbsp;</label>
 
             <!-- Street textbox -->
-            <input type="text" name="shipping_street_edited" id="shipping_street_textbox" value="<?php echo "$edited_shipping_street"; ?>" pattern='[A-Za-z0-9]+[ A-Za-z0-9.]*' title='Only characters and spaces'><br><br>
+            <input type="text" name="shipping_street_edited" id="shipping_street_textbox" value="<?php echo "$edited_shipping_street"; ?>" pattern='[A-Za-z0-9.]+[ .A-Za-z0-9]' title='Only letters, numbers, spaces, and .'><br><br>
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             
@@ -135,7 +135,7 @@ color: #4d4d4d;
             <label for="shipping_city_label">City&nbsp;&nbsp;</label>
 
             <!-- City textbox -->
-            <input type="text" name="shipping_city_edited" id="shipping_city_textbox" value="<?php echo "$edited_shipping_city"; ?>" pattern='[A-Za-z]+[ A-Za-z.\-]*' title='Only characters, spaces, and . -'><br><br>
+            <input type="text" name="shipping_city_edited" id="shipping_city_textbox" value="<?php echo "$edited_shipping_city"; ?>" pattern='[A-Za-z]+[ A-Za-z.\-]*' title='Only letters, numbers, spaces, and . -'><br><br>
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -177,7 +177,7 @@ color: #4d4d4d;
             <label for="first_name_label">First Name&nbsp;&nbsp;</label>
 
             <!-- First name textbox -->
-            <input type="text" name="first_name_edited" id="first_name_textbox" value="<?php echo "$edited_first_name"; ?>" pattern='[A-Za-z-]+[ a-zA-Z\-]*' title='Only characters and -'><br><br>
+            <input type="text" name="first_name_edited" id="first_name_textbox" value="<?php echo "$edited_first_name"; ?>" pattern='[A-Za-z]+[ A-Za-z.\-]*' title='Only letters, spaces, and . -'><br><br>
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -185,7 +185,7 @@ color: #4d4d4d;
             <label for="last_name_label">Last Name&nbsp;&nbsp;</label>
 
             <!-- Last name textbox -->
-            <input type="text" name="last_name_edited" id="last_name_textbox" value="<?php echo "$edited_last_name"; ?>" pattern='[A-Za-z-]+[a-zA-Z \-]*' title='Only characters and -'><br><br>
+            <input type="text" name="last_name_edited" id="last_name_textbox" value="<?php echo "$edited_last_name"; ?>" pattern='[A-Za-z]+[ A-Za-z.\-]*' title='Only letters, spaces, and . -'><br><br>
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
