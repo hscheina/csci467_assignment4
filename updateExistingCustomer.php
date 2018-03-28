@@ -28,7 +28,7 @@ color: #4d4d4d;
 
         <!-- SUCCESS MESSAGE -->
         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label class="success"><?php echo "<script type='text/javascript'>alert(Customer updated successfully!')</script>";?></label><label class="error"><?php echo "$error_message";?></label><br><br>
+        <label class="success"><?php echo "<script type='text/javascript'>alert('Customer updated successfully!')</script>";?></label><label class="error"><?php echo "$error_message";?></label><br><br>
 
         
         <h6><span>Update a Customer</span></h6><br>
