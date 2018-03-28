@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
                         $stmt=$conn->prepare($insertSQL);
                         $ok=$stmt->execute(array($name,$description,$price));
 
-                        echo "Item ".$name." added successfully!";
+		echo "<script type='text/javascript'>alert('Item ".$name." added successfully!')</script>";
                 }
 
                 catch (PDOException $e)

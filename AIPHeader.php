@@ -8,8 +8,7 @@
     padding: 10px;
 }
 table.linktable {
-border-collapse: collapse;
-    border: 1px solid white;
+	border-style: none;xx
 }
 table.linktable td {
 text-align:left;

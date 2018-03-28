@@ -128,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
                         $stmt=$conn->prepare($insertSQL);
                         $ok=$stmt->execute(array($customername,$billingstreet,$billingcity,$billingstate,$billingzip,$shippingstreet,$shippingcity,$shippingstate,$shippingzip,$contactfirstname,$contactlastname,$contactphonenumber,$contactemail));
 
-                        echo "Customer ".$customername." added successfully!";
+                        echo "<script type='text/javascript'>alert('Customer ".$customername." added successfully!')</script>";
                 }
 
                 catch (PDOException $e)
