@@ -19,12 +19,10 @@ h6 {
 /***************************************************************************/
 
 body { 
-    background-image: url('geo.');
         background-repeat: no-repeat;
-    background-position: 0px 192px; 
 }
 h6 {
-   width: 100%; 
+   width: 90%; 
    text-align: left; 
    border-bottom: 1px solid #000; 
    line-height: 0.1em;
