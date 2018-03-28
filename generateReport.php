@@ -23,11 +23,11 @@ echo '<form name="generateReport" id="generateReport"
         action="generateReport.php" method="post">';
 echo '<br>';
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-        echo "<input type='radio' name='reportType' id='reportType' value='summary'>";
-	echo "<label for='reportType'>&nbsp;Summary &nbsp;&nbsp;&nbsp;&nbsp;</label>";
+        echo "<input type='radio' name='reportType' id='reportType' value='detail' checked='checked'>";
+	echo "<label for='reportType'>&nbsp;Detail &nbsp;&nbsp;&nbsp;&nbsp;</label>";
 
-        echo "<input type='radio' name='reportType' id='reportType' value='detail'>";
-	echo "<label for='reportType'>&nbsp;Detail &nbsp;</label><br>";
+        echo "<input type='radio' name='reportType' id='reportType' value='summary'>";
+	echo "<label for='reportType'>&nbsp;Summary &nbsp;</label><br><br>";
 
 
 
@@ -37,6 +37,7 @@ echo '<br>';
  echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='customerOrderSelection'>Select an Order &nbsp;&nbsp;</label>";
         echo '<select name="customerOrderSelection">';
+echo "<option value='' selected disabled>Select an order</option>";
         foreach ($conn->query($sqll) as $row)
         {
                 echo '<option value="';
@@ -47,12 +48,14 @@ echo "<label for='customerOrderSelection'>Select an Order &nbsp;&nbsp;</label>";
         }
 echo '</select>&nbsp;&nbsp;';
 echo '<br>';
-echo '<br>';
+echo '<br><br>';
 
 echo '<h6><span>Select a Sort Order</span></h6><br>';
  echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='sortOrderSelection'>Sort by &nbsp;&nbsp;</label>";
+
         echo '<select name="sortOrderSelection">';
+		echo "<option value='' selected disabled>Select a sort order</option>";
 		 echo '<option value="price">Item price</option>';
 		echo '<option value="quantity">Item quantity</option>';
 		echo '<option value="price">Item price</option>';

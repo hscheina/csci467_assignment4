@@ -40,6 +40,8 @@ echo '<br>';
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='customerBillingState'>State &nbsp;&nbsp;</label>";
         echo '<select name="customerBillingState">';
+echo "<option value='' selected disabled>Select a state</option>";
+
         foreach ($conn->query($sql) as $row)
         {
                 echo '<option value="';
@@ -65,6 +67,8 @@ echo "<label for='customerShippingStreet'>Street &nbsp;&nbsp;</label>";
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
         echo "<label for='customerShippingState'>State &nbsp;&nbsp;</label>";
         echo '<select name="customerShippingState">';
+echo "<option value='' selected disabled>Select a state</option>";
+
         foreach ($conn->query($sql) as $row)
         {
                 echo '<option value="';
