@@ -3,13 +3,13 @@
 <title>MPC - Create a New Order</title>
 
 
-
 <style>
 
 h6 {
-   width: 50%; 
+color: 4d4d4d;
+   width: 90%; 
    text-align: left; 
-   border-bottom: 1px solid #000; 
+   border-bottom: 1px solid #018DB1; 
    line-height: 0.1em;
    margin: 10px 0 10px; 
 } 
@@ -19,7 +19,7 @@ div.wrapper {
 }
 div.b {
 	font-size: 9px;
-	color: #E83F7C;
+	color: #018DB1;
 	text-indent: 100px;
 }
 h6 span {
@@ -38,9 +38,9 @@ align: center;
     padding: 8px;
 }
 tr:nth-child(even) {background-color: #f2f2f2;}
-tr:hover {background-color: #fad1e0;}
+tr:hover {background-color: #bfbfbf;}
 th {
-    background-color: #E83F7C;
+    background-color: #018DB1;
     color: white;
 font-size: 16px;
 font-weight: normal;

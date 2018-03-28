@@ -15,7 +15,7 @@ text-align:left;
 align: left;
 padding: 0px;
 }
-tr:hover {background-color: #ffffff;}
+table.linktable tr:hover {background-color: #ffffff;}
 </style>
 <script>
 function w3_open() {
@@ -53,8 +53,11 @@ function w3_close() {
 <div>
   <button class="w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button></div></td><td>
 <div class="content">
-<img src="MPC-LOGO.png" alt="AIP Logo" style="width:350px;height:150px;">
-</div></td></tr>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="MPC-LOGOUpdated.png" alt="AIP Logo" style="width:400px;height:120px;">
+</div></td>
+</tr>
+
 </table>
 </body>
 </html>

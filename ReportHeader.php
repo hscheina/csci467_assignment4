@@ -8,6 +8,7 @@ body {
 	background-repeat: no-repeat;
     background-position: 0px 192px; 
 }
+
 </style>
 
 
@@ -27,8 +28,9 @@ body {
 
 <div>
 
-
-<img src="MPC-LOGO.png" alt="AIP Logo" style="width:350px;height:150px;">
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="MPC-LOGOUpdated.png" alt="AIP Logo" style="width:400px;height:120px;">
 <script>
 function w3_open() {
     document.getElementById("mySidebar").style.display = "block";

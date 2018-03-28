@@ -4,7 +4,16 @@
 <link rel = "stylesheet"
    type = "text/css"
    href = "stylesheet.css" />
-
+<style>
+h6 {
+   width: 90%; 
+color: #4d4d4d;
+   text-align: left; 
+   border-bottom: 1px solid #018DB1; 
+   line-height: 0.1em;
+   margin: 10px 0 10px; 
+}
+</style>
 </head>
 <body>
 <?php
@@ -58,7 +67,6 @@ echo "<label for='sortOrderSelection'>Sort by &nbsp;&nbsp;</label>";
 		echo "<option value='' selected disabled>Select a sort order</option>";
 		 echo '<option value="price">Item price</option>';
 		echo '<option value="quantity">Item quantity</option>';
-		echo '<option value="price">Item price</option>';
 		echo '<option value="name">Item name</option>';
 		echo '<option value="description">Item type</option>';
 echo '</select>&nbsp;&nbsp;';
