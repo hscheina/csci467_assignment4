@@ -142,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
 			//echo $selected; the item id
 			//echo $_POST[$selected]; the quantity
 			}
-			echo "Order created successfully!";
+			echo "<script type='text/javascript'>alert('Order placed successfully!')</script>";
 			}
 
 			catch (PDOException $e) {
