@@ -24,10 +24,6 @@ color: #4d4d4d;
 <body>
     
 <div class="content">          
-<h6><span>Update a Customer</span></h6><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
 
 
 <!-- Customer drop down list -->
@@ -41,8 +37,6 @@ color: #4d4d4d;
         <h6><span>Update a Customer</span></h6><br>
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label class="success"><?php echo "$customer_message";?></label>	
-      <label class="error"><?php echo "$error_message";?></label><br><br>
 
 
 
