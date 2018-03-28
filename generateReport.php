@@ -23,7 +23,7 @@ include ("conn.php");
 
 
 $sql="select description from ItemTypes";
-$sqll="select order_id from allOrders";
+$sqll="select allOrders.order_id, Customers.customername from allOrders, Customers where allOrders.cust_id=Customers.id";
 
 echo "<div class='content'>";
 echo '<h6><span>Generate Report</span></h6>';
@@ -52,7 +52,7 @@ echo "<option value='' selected disabled>Select an order</option>";
                 echo '<option value="';
                 echo $row["order_id"];
                 echo '">';
-                echo $row["order_id"];
+                echo "#".$row["order_id"]." ".$row["customername"];
                 echo '</option>';
         }
 echo '</select>&nbsp;&nbsp;';

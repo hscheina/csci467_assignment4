@@ -24,18 +24,23 @@ color: #4d4d4d;
 }
 </style>
 <body>
-<div class="content">
     
-    <!-- Customer drop down list -->
+<div class="content">          
+<h6><span>Update a Customer</span></h6><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+<!-- Customer drop down list -->
     <form method="POST" action="updateExistingCustomer.php" id="update_customer_form">
+
 
         <!-- SUCCESS MESSAGE -->
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label class="success"><?php echo "$customer_message";?></label>
-        
-        <h6><span>Update a Customer</span></h6><br>
+        <label class="success"><?php echo "$customer_message";?></label>	
 
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
         <label for="search-customer-label">Select a Customer&nbsp;&nbsp;</label>
 
