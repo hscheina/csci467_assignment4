@@ -4,6 +4,16 @@
 <link rel = "stylesheet"
    type = "text/css"
    href = "stylesheet.css" />
+<style>
+h6 {
+   width: 90%; 
+color: #4d4d4d;
+   text-align: left; 
+   border-bottom: 1px solid #018DB1; 
+   line-height: 0.1em;
+   margin: 10px 0 10px; 
+}
+</style>
 
 </head>
 <body>
