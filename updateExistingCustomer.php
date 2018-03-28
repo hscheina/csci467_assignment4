@@ -228,7 +228,7 @@ color: #4d4d4d;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
         <!-- Update customer button -->
-        <button onclick="update_customer_button_clicked()" type="submit" name="update_customer_button" id="update_customer_button" style="width: 200px;">Update</button><br><br>
+        <button onclick="update_customer_button_clicked()" type="submit" name="update_customer_button" id="update_customer_button" style="width: 200px;">Update</button>
 
 
 <!-- SUCCESS MESSAGE -->
