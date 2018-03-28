@@ -31,19 +31,13 @@ echo '<br>';
 
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 
-    //Item name label
-	echo "<label for='name'>Item Name &nbsp;</label>";
-
-    //Item name textbox
-    echo "<input type='text' name='name' id='name' pattern='[ A-Za-z-]+[A-Za-z]' title='E.g., AERO AT-3' required><br>";
 
 
-	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 	echo "<label for='name'>Item Name &nbsp;&nbsp;</label>";
         echo "<input type='text' name='name' id='name' pattern=[ a-zA-Z()\-\/.0-9\[\]~_]+ title='Only spaces, alphanumeric and ()- / . [ ] ~ _' required><br><br>";
 
 echo '<br>';
-	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='description'>Type &nbsp;&nbsp;</label>";
         echo '<select name="description" required="required">';
 echo "<option value='' selected disabled>Select item type</option>";
@@ -58,7 +52,7 @@ echo "<option value='' selected disabled>Select item type</option>";
         }
         echo '</select>&nbsp;&nbsp;';
 	echo '<br><br><br>';
-echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
        echo "<label for='price'>Price &nbsp;&nbsp;</label>";
         echo "<input type='text' name='price' id='price' pattern=[0-9]{1,63}(\.[0-9]{0,2})? title='Only the number, nothing other than digits and .' required><br>";
 
