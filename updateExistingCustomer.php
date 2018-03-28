@@ -28,7 +28,7 @@ color: #4d4d4d;
 
         <!-- SUCCESS MESSAGE -->
         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label class="success"><?php echo "<script type='text/javascript'>alert('Customer updated successfully!')</script>";?></label><label class="error"><?php echo "$error_message";?></label><br><br>
+        <label class="success"><?php echo $success_message;?></label><label class="error"><?php echo "$error_message";?></label><br><br>
 
         
         <h6><span>Update a Customer</span></h6><br>
@@ -64,8 +64,8 @@ color: #4d4d4d;
             <!-- Customer name label -->
             <label for="customer_name_label">Customer Name&nbsp;&nbsp;</label>
 
-            <!-- Customer name textbox -->
-            <input type="text" name="customer_name_edited" id="customer_name_textbox" value="<?php echo "$edited_customer_name"; ?>" pattern='[A-Za-z0-9]+[ A-Za-z0-9-]*' title='Only characters, spaces and numbers'><br><br>
+            <!-- Customer name textbox --> 
+            <input type="text" name="customer_name_edited" id="customer_name_textbox" value="<?php echo "$edited_customer_name"; ?>" pattern='[A-Za-z0-9]+[ A-Za-z0-9-.-]*' title='Only characters, spaces, numbers, and .'><br><br>
 
         <h6><span>Billing Address</span></h6><br>
 
@@ -85,7 +85,7 @@ color: #4d4d4d;
             <label for="billing_city_label">City&nbsp;&nbsp;</label>
 
             <!-- City textbox -->
-            <input type="text" name="billing_city_edited" id="billing_city_textbox" value="<?php echo "$edited_billing_city"; ?>" pattern='[A-Za-z]+[ A-Za-z.\-]*' title='Only characters and spaces'><br><br>
+            <input type="text" name="billing_city_edited" id="billing_city_textbox" value="<?php echo "$edited_billing_city"; ?>" pattern='[A-Za-z]+[ A-Za-z.\-]*' title='Only characters, spaces, and . -'><br><br>
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -135,7 +135,7 @@ color: #4d4d4d;
             <label for="shipping_city_label">City&nbsp;&nbsp;</label>
 
             <!-- City textbox -->
-            <input type="text" name="shipping_city_edited" id="shipping_city_textbox" value="<?php echo "$edited_shipping_city"; ?>" pattern='[A-Za-z]+[ A-Za-z.\-]*' title='Only characters and spaces'><br><br>
+            <input type="text" name="shipping_city_edited" id="shipping_city_textbox" value="<?php echo "$edited_shipping_city"; ?>" pattern='[A-Za-z]+[ A-Za-z.\-]*' title='Only characters, spaces, and . -'><br><br>
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 

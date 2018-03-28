@@ -339,7 +339,7 @@
 				mysqli_query($harisConn, $update_customer_query);
 
 				//Display success message
-				$success_message = "Customer was successfully updated!";
+				$success_message = "<script type='text/javascript'>alert('Customer updated successfully!')</script>";
 		
  		}//endif update button
 		
