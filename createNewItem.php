@@ -21,21 +21,27 @@ include ("AIPHeader.php");
 include ("conn.php");
 
 
-
-
-
-
 $sql="select description from ItemTypes";
 
 echo "<div class='content'>";
 echo '<h6><span>Create a New Item</span></h6>';
 
-echo '<form name="createnewitem" id="createnewitem"
-        action="createNewItem.php" method="post">';
+echo '<form name="createnewitem" id="createnewitem" action="createNewItem.php" method="post">';
 echo '<br>';
+
+	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+
+    //Item name label
+	echo "<label for='name'>Item Name &nbsp;</label>";
+
+    //Item name textbox
+    echo "<input type='text' name='name' id='name' pattern='[ A-Za-z-]+[A-Za-z]' title='E.g., AERO AT-3' required><br>";
+
+
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 	echo "<label for='name'>Item Name &nbsp;&nbsp;</label>";
         echo "<input type='text' name='name' id='name' pattern=[ a-zA-Z()\-\/.0-9\[\]~_]+ title='Only spaces, alphanumeric and ()- / . [ ] ~ _' required><br><br>";
+
 echo '<br>';
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo "<label for='description'>Type &nbsp;&nbsp;</label>";
@@ -68,9 +74,15 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
 {
         if ($_POST['which'] == 'createnewitem')
         {
+
+                //********** GET USER INPUT **********//
+
                 $name=$_POST['name'];
                 $description=$_POST['description'];
-		$price=$_POST['price'];
+		        $price=$_POST['price'];
+
+
+                //Insert into database
                 $insertSQL="INSERT INTO Items (name,description,price) VALUES(?,?,?)";
 
                 try
@@ -86,6 +98,8 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
                         echo "Oops, item could not be added.";
                         echo "error: ".$e->getMessage();
                 }
+                
+                
         }
 }
 
