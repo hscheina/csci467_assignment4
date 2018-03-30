@@ -65,7 +65,7 @@ color: #4d4d4d;
 
         </select>&nbsp;&nbsp;&nbsp;
 
-        <button onclick="edit_customer_button_clicked()" type="submit" name="edit_customer_button" id="edit_customer_button">EDIT</button><br><br>
+        <button onclick="edit_customer_button_clicked()" type="submit" name="edit_customer_button" id="edit_customer_button">Edit</button><br><br>
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
