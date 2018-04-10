@@ -236,7 +236,7 @@ color: #4d4d4d;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label class="success"><?php echo $success_message;?></label><label class="error"><?php echo "$error_message";?></label>
     </form> 
-
+<br>
     <script>
 
         /* Enable or disable error checking when edit button is clicked*/

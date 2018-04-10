@@ -100,7 +100,7 @@ echo '<div class="wrapper">';
 echo '<input type="button" style="width: 200px;" value="Cancel" onclick="goToGenerateReport()" />';
 echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 echo '<input type="button" style="width: 200px;" value="Print Report" onclick="printPage()" />';
-echo "<br><br><br>";
+echo "<br><br>";
 echo "</div>";
 
 
