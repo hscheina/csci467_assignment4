@@ -51,7 +51,7 @@ echo "<option value='' selected disabled>Select an order</option>";
                 echo '<option value="';
                 echo $row["order_id"];
                 echo '">';
-                echo "#".$row["order_id"]." ".$row["customername"];
+                echo "#".$row["order_id"]." - ".$row["customername"];
                 echo '</option>';
         }
 echo '</select>&nbsp;&nbsp;';
