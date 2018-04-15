@@ -129,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
 		$billingstate=$_POST['customerBillingState'];
 		$billingzip=$_POST['customerBillingZip'];
 		$shippingstreet=$_POST['customerShippingStreet'];
-		$shippingcity=$_POST['customerShippingStreet'];
+		$shippingcity=$_POST['customerShippingCity'];
 		$shippingstate=$_POST['customerShippingState'];
 		$shippingzip=$_POST['customerShippingZip'];
 		$contactfirstname=$_POST['contactFirstName'];
